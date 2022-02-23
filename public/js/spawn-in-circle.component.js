@@ -1,3 +1,7 @@
+// Spawn-in-Circle component originally by Michael McAnally
+// Sourced from https://michael-mcanally.medium.com/multi-user-vr-office-space-using-a-frame-and-naf-cab1409800ce
+// an extension for Networked A-Frame solution
+
 AFRAME.registerComponent('spawn-in-circle', {
   schema: {
     radius: {type: 'number', default: 1},
