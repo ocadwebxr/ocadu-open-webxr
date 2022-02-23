@@ -1,3 +1,12 @@
+# OCAD University Open WebXR Template for A-Frame
+
+OCAD University Open WebXR is an open-source A-Frame project template for building AR/VR gallery spaces for a variety of digital media. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
+
+This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
+
+## Sister Projects
+(TBA)
+
 # User Manual
 #### Getting Started with the WebXR Platform
 Updated 2022-02-07
@@ -26,8 +35,7 @@ Contact [ocadwebxr@gmail.com](mailto:ocadwebxr@gmail.com) with a description and
 9. Modifying Overlay Content
 10. A-Frame Components
 11. Troubleshooting Notes
-12. Resource Index
-13. Acknowledgements
+12. Asset Acknowledgements
 
 ---------
 
@@ -151,7 +159,7 @@ To prepare your media for preloading, do the following:
 2. Paste the following code: `<a-asset-item id="XXXX" src="#YYYY"></a-asset-item>` Replace XXXX with a brief one-word label for the work; you will use this term to reference the asset when staging it later. If the asset is an audio, video, or image asset, replace 'a-asset-item' with 'audio', 'video', or 'img' respectively.
 3. After uploading your work to the [assets folder](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/), select the asset and click Copy Link. Replace YYYY in step 2 with the link you copied. 
 
-If your asset is particularly large, you may want to add the `preload="auto"` attribute to your asset item tag. This will force the asset to be loaded before the scene starts, ensuring that the asset reliably appears in the scene. Note that this is not be a substitute for Media Preparation; every time your site is opened, visitors will need to download all the content you have uploaded, so be sure to be careful about the size of your assets. You can also add the attribute 'timeout="10000"' to the <scene> tag to tell A-Frame to wait at least 10 seconds (10000 milliseconds) before giving up trying to load your assets, but we highly recommend reducing the size of your assets before resorting to increasing your visitor's loading times.
+If your asset is particularly large, you may want to add the `preload="auto"` attribute to your asset item tag. This will force the asset to be loaded before the scene starts, ensuring that the asset reliably appears in the scene. Note that this is not be a substitute for Media Preparation; every time your site is opened, visitors will need to download all the content you have uploaded, so be sure to be careful about the size of your assets. You can also add the attribute 'timeout="10000"' to the `<scene>` tag to tell A-Frame to wait at least 10 seconds (10000 milliseconds) before giving up trying to load your assets, but we highly recommend reducing the size of your assets before resorting to increasing your visitor's loading times.
 
 ### Staging Assets
 
@@ -183,6 +191,7 @@ Learn more about A-Frame's Visual Inspector by clicking [here](https://aframe.io
 
 [![Staging your work tutorial video](https://img.youtube.com/vi/9DXnENCyHB0/0.jpg)](https://www.youtube.com/watch?v=9DXnENCyHB0)
 
+
 ```
 <a-gltf-model      
   src="#YYYY"          <!-- Hyperlink to model asset -->
@@ -203,6 +212,7 @@ At this time, only pointclouds in PLY format are supported.
 
 1. Scroll to the 'SCENE CONTENT SECTION' in the gallery code base (use Ctrl+F / ⌘F); this is the Scene Content section, where you will tell the code to place any assets you have loaded.
 2. Type the following code. Replace YYYY with the link to an asset (as described in the Staging Your Work section of this user manual). Note that preloading is currently not supported for PLY files. An example pointcloud is provided in the gallery_template.html file.
+
 ```
 <a-pointcloud 
         src="#YYYY        <!-- Hyperlink to PLY asset -->
@@ -331,22 +341,9 @@ You can add as many compatible components to your objects as you'd like, but if 
 
 You can also check out [NPM's listing of A-Frame components](https://www.npmjs.com/search?q=aframe-component&page=0&perPage=20), including [a component for creating portals](https://www.npmjs.com/package/aframe-portals)! Follow the instructions with each component to install and use them with your project.
 
-
----------
-
-## Resource Index
-
-- [A-Frame](https://aframe.io)
-- [Draco](https://google.github.io/draco/)
-- [Glitch](https://glitch.com)
-- [HTML](https://html.com/)
-- [ThreeJS](https://threejs.org)
-
 ---------
                                               
-## Acknowledgements
-                                              
-This project is made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca).
+## Asset Acknowledgements
                                               
 The gallery template features a pointcloud artwork created and provided courtesy of Pau Aviles.
            
@@ -354,3 +351,19 @@ The cartoon featured in the gallery template is a clip from [Felix: Doubles for 
                                               
 The audio featured in the gallery template is [Blue Grass Blues as performed by the Chicago Blues Dance Orchestra](https://archive.org/details/78_blue-grass-blues_chicago-blues-dance-orchestra_gbia0278941a/BLUE+GRASS+BLUES+-+CHICAGO+BLUES+DANCE+ORCHESTRA.flac), a public domain audio recording produced in 1923.
                                               
+### Javascript Dependencies
+                                              
+This project incorporates the following javascript libraries:
+  
+- [A-Frame](https://aframe.io)
+- [A-Frame Extras](https://github.com/n5ro/aframe-extras)
+- [A-Frame Mobile Controls: Twoway Motion](https://github.com/Ctrl-Alt-Zen/aframe-mobile-controls/tree/master/components/twoway-motion)
+- [A-Frame Pointcloud Component](https://github.com/daavoo/aframe-pointcloud-component)
+- [A-Frame Randomizer Components](https://www.npmjs.com/package/aframe-randomizer-components)
+- [Networked A-Frame](https://www.npmjs.com/package/networked-aframe)
+- [Bootstrap](https://getbootstrap.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [jQuery](https://jquery.com/)
+- [Socket.io](https://socket.io/)
+- [ThreeJS](https://threejs.org)
+                       

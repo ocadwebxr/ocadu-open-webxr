@@ -1,4 +1,5 @@
-// From https://www.w3schools.com/howto/howto_html_include.asp
+// From W3 Schools https://www.w3schools.com/howto/howto_html_include.asp
+// Included under 'Fair Use' https://www.w3schools.com/about/about_copyright.asp
 function includeHTML() {
   var z, i, elmnt, file, xhttp;
   /* Loop through a collection of all HTML elements: */
