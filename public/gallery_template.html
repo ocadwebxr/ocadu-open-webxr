@@ -1,0 +1,578 @@
+<!-- A TEMPLATE GALLERY SPACE. DUPLICATE THIS PAGE AND GIVE IT A UNIQUE NAME TO SHOWCASE YOUR WORK-->
+
+<html>
+  <head>
+    <!--********************************************************************************************************************
+    * Header Metadata Section
+    *   Contains metadata describing the website.
+    ***********************************************************************************************************************
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <!--Gallery Title and Metadescription-->
+    <title>Open WebXR Gallery Template Room</title>
+    <meta
+      name="description"
+      content="Open VR Staging Ground, Gallery, and Meeting Place"
+    />
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://cdn.glitch.global/06e25459-7547-47e5-9d1d-9ea50f5cb1df/logo-ocadu.ico?v=1642359789385" type="image/x-icon">
+    
+    <!-- Five letter identifier for gallerymap.js (update this) -->
+    <script>myPageID="YELLO"</script> 
+
+    <!--********************************************************************************************************************
+    * Header Scripts Section
+    *   Contains important scripts vital to the operation of the gallery.
+    *   DO NOT MODIFY unless you know exactly what you are doing.
+    ***********************************************************************************************************************
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <!-- BOOTSTRAP FEATURES (for layout) -->
+    <!--   Bootstrap CSS for Preloader-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css"
+      integrity="sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap JS Dependencies-->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!--Font Awesome Iconography-->
+    <script src="https://kit.fontawesome.com/f3fbe8f644.js" crossorigin="anonymous"></script>
+
+    <!-- A-FRAME FEATURES (for gallery)-->
+    <!-- A-Frame plugin -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!--   Move on mobile   -->
+    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+    <!--   Network Functionality Plugins   -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+    <script src="https://unpkg.com/networked-aframe@^0.7.1/dist/networked-aframe.min.js"></script>
+
+    <!--   Pointcloud Plugin   -->
+    <script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>
+    <!--   Plugin for randomizing avatar colours   -->
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+    <!-- Include HTML -->
+    <script src="https://ocadu-web-xr.glitch.me/js/include-html.js"></script>
+    
+    <!-- OCAD WebXR Repository Content -->
+    <!-- Basic Components for your AFrame entities -->
+    <script src="https://ocadu-web-xr.glitch.me/js/basic_components.js"></script>
+    <!--   Plugin for spawning users in a circle   -->
+    <script src="https://ocadu-web-xr.glitch.me/js/spawn-in-circle.component.js"></script>
+        
+    <!-- Enables Play-on-Click properties to ensure audio / video works on all devices -->
+    <!-- Note: must add play-on-click-video components to video / play-on-click-audio components to audio -->
+    <script src="https://ocadu-web-xr.glitch.me/js/play-on-click.js"></script>
+    
+    <!-- Movement Controls-->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+
+    <!--********************************************************************************************************************
+    * Optional Scripts Section
+    * If you want to add your own scripts, this is where they go.
+    * Keep in mind that they may conflict with other script functionality; 
+    *     any additions you make here are your own responsibility.
+    *
+    * Consider checking out A-Frame's Extra scripts and their documentation for added funcitonality
+    * (e.g. fbx and obj model loaders, animation-mixer for gltf models, mesh smoothing)
+    * https://github.com/n5ro/aframe-extras#readme
+    * https://github.com/n5ro/aframe-extras/tree/master/src/loaders
+    * 
+    * External scripts can be added to the js subdirectory and tagged accordingly (or via a webhosted src):
+    * <script src="/js/spawn-in-circle.component.js"></script>
+    ***********************************************************************************************************************
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+    <!-- lorem ipsum -->
+      </head>
+  
+
+  <!-- Gallery Body: The Scene is embedded here-->
+  <body>
+    
+  <!--********************************************************************************************************************
+      * Overlay Panels Section
+      * 
+      * Contains the button and panel overlay HTML code, providing informative descriptions of the gallery/art and controls.
+      * 
+      * We recommend filling in the information in the Information Panel section and leaving the Controls Panel as-is, but
+      *      you are welcome to stylize these components or create your own additional buttons using the examples, JS code
+      *      and overlay style sheet if you wish.
+      ***********************************************************************************************************************
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+    
+      <!-- Overlay scripts | NOTE: Must be located BEFORE all Overlay HTML code. -->
+      <link rel="stylesheet" href="https://ocadu-web-xr.glitch.me/overlay_style.css"> <!--Style Sheet for Overlay-->
+      <script src="https://ocadu-web-xr.glitch.me/js/infoOverlay.js"></script> <!-- General Overlay functions -->
+      <script src="https://ocadu-web-xr.glitch.me/js/gallerymap.js"></script>  <!-- Sitemapping -->
+      <!-- Important: -->
+      <!-- To designate your own gallery site mapping, use the following tag with your own local, customized copy of gallerymap.js
+      <script src="/js/gallerymap.js"></script> -->
+      <script src="https://ocadu-web-xr.glitch.me/js/sitemap_overlay.js"></script>  <!-- Scripts for sitemap functions -->
+    
+      <!--Overlay content begins here-->
+      <div id="infoOverlay"> 
+      
+      <!-- Navigation Buttons -->
+      <div id="overlayBtns">
+        <i class="fas fa-info-circle fa-3x" id="infoButton" onclick="toggleElement('infoPopup')"></i> <!-- Information Pop-Up Button -->
+        <a id="ctrlButton"  onclick="toggleElement('ctrlPopup')"><i class="fas fa-gamepad fa-3x"></i></a>  <!-- Controls Pop-Up Button -->
+        <a id="mapButton"  onclick="toggleElement('mapPopup');"><i class="fas fa-map fa-3x"></i></a> <!-- Site Map Pop-Up Button -->
+        <a id="homeButton" href="/index.html" target="_blank"><i class="fas fa-home fa-3x"></i></a> <!--Home Button-->
+      </div>
+        <!-- Replaces home link with designated link in gallerymap.js -->
+        <script>swapHome();</script>
+
+      <!-- Overlay Panels -->
+        
+      <!-- Click Prompt Banner; depends on play-on-click.js and use of associated components-->
+      <div class="overlayGreyout" id="click-anywhere-banner" >
+        <div id="click-anywhere-image">
+          <img src="https://cdn.glitch.global/06e25459-7547-47e5-9d1d-9ea50f5cb1df/click_prompt.png?v=1642895249993">
+        </div>
+      </div>
+        
+      <!-- Information Panel -->
+        <div class="overlayPanel" id="infoPopup">
+          <div class="container">
+            <div class="row" >
+              <div class="col">  
+              <button class="overlayBtn" id="closeInfoWindowButton" onclick="closeElement('infoPopup')">X</button>
+              <!-- Artwork/gallery information goes here -->
+                  <h3 id="artistName">Name, Your</h3>
+                  Form and Time class, Fall 2021
+
+                  <h4>Title of Work, 2021</h4>
+
+                  <p>Artist Statement 
+                    </p>
+
+                <br>
+                <!-- information ends here -->              
+       </div></div>
+          
+        <!-- Automatically populates with links to other galleries based on contents of your designated gallerymap.js-->
+        <div id="neighbours"></div>
+              <script>neighbourNavigation();</script>
+          
+        </div></div>
+
+      <!-- Controls Panel -->
+        <div class="overlayPanel" id="ctrlPopup">
+          <div class="container">
+            <div class="row" >
+              <div class="col">
+              <button class="overlayBtn" id="closeCtrlWindowButton" onclick="closeElement('ctrlPopup')">X</button>
+                
+              <!-- Controls information is loaded from an external source -->
+              <div w3-include-html="https://ocadu-web-xr.glitch.me/controls.html"></div>
+
+       </div></div></div></div>
+  
+           <!-- Sitemap Panel -->
+            <div class="overlayPanel" id="mapPopup">
+              <div class="container">
+                <div class="row" >
+                  <div class="col">
+                  <button class="overlayBtn" id="closeMapWindowButton" onclick="closeElement('mapPopup')">X</button>                  
+                  <p>
+                  <h3>Gallery Sitemap</h3>  
+                  </p>
+                  
+                  <!-- This section is automatically populated based on gallerymap.js 
+                            if sitemap_overlay.js is included in the header -->
+                  <div class="container overflow-auto" id="tourListing"></div>
+                  <script>populateTourListing();</script>
+           </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    
+    <!--********************************************************************************************************************
+    * Scene Loading 
+    * You can adjust the preloading 'title' text here. 
+    * IMPORTANT: rename 'network-room-name' to a unique name;
+    *     this is your network name for your gallery space.
+    *      (Otherwise you will have unexpected visitors!)
+    * We recommend setting 'debug' to false when you are finished your project.
+    ***********************************************************************************************************************
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+ 
+    <a-scene
+      preloader="Just a moment...; clickToClose: false;"
+      webxr="optionalFeatures: dom-overlay,unbounded; overlayElement: #infoOverlay;"
+      loading-screen="backgroundColor: #111111"
+      fog="type: linear; color: #222"
+      networked-scene="
+      room: network-room-name;
+      debug: true;"
+    >
+      <!-- We can adjust how much time out assets have to load into the scene here (in milliseconds) -->
+      <a-assets timeout="10000">
+        <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+      ASSET LOADING SECTION
+      
+     ***************************************************************************************
+    * This section is for Assets, and is where we preload all the files that are displayed as part of the gallery. 
+    *   This is optional, but ensures that each asset is only loaded once instead of loaded every time the URL is loaded.
+    *   (i.e. defining assets means less memory-hogging!)
+    * 
+    * Anything placed in Assets will be loaded, regardless of if it's been placed in the scene or not;
+    *   for faster loading and running times, avoid including unused assets.
+    *
+    * use one of the following tag pairs to initialize your object:
+    * <video id="XXXX" src="YYYY" crossorigin="anonymous" ></video>                (for videos)
+    * <audio id="XXXX" src="YYYY" crossorigin="anonymous" ></audio>                 (for audio)
+    * <img id="XXXX" src="YYYY" crossorigin="anonymous" ></img>                     (for images)
+    * <a-asset-item id="XXXX" src="YYYY crossorigin="anonymous" ></a-asset-item>   (for everything else, inc. 3D models)
+    *
+    * XXXX - a unique name to reference || YYYY - the URL linking to your asset (usually from the assets folder)
+    ***************************************************-->
+
+        <!-- Assets go here-->
+        <audio id="spatialSound" 
+               crossorigin="anonymous"
+               autoplay 
+               loop="true" 
+               src="https://cdn.glitch.global/8686da3b-c48a-495a-b7b1-008247912601/BLUE%20GRASS%20BLUES%20-%20CHICAGO%20BLUES%20DANCE%20ORCHESTRA.mp3?v=1645655040125" 
+               ></audio>
+        
+        <video 
+             id="felix" 
+             crossorigin="anonymous" 
+             autoplay 
+             loop="true" 
+             src="https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2FfelixDarwin.mp4?v=1635786992772"
+         ></video>
+        
+        <a-asset-item
+          id="arrowOBJ"
+          crossorigin="anonymous" 
+          src="https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Farrow.obj?v=1638817282988"
+        ></a-asset-item>
+        
+        <a-asset-item
+          id="arrowMTL"
+          crossorigin="anonymous" 
+          src="https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Farrow.mtl?v=1638817282798"
+        ></a-asset-item>
+
+        <!-- 
+      * The following assets are referenced by the gallery's core scripts.
+     ****************************************************************
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+        <!-- Avatar  -->
+        
+        <!-- You can make changes to the appearance of the avatar here-->
+        <template id="avatar-template">
+          <a-entity class="avatar" scale="0.5 0.5 0.5">
+            
+            <!-- 'Tadpole' Avatar -->
+            <a-entity
+                scale="0.5 0.5 0.5"      
+                >
+                <a-entity
+                  class="player"
+                  >
+                    <!--Nucleus -->
+                    <a-sphere
+                        scale="0.5 0.5 0.5"
+                        color="#333333"
+                        blending="additive"
+                        opacity="0.3"
+                        position="0 0 -1"
+                        >
+                    </a-sphere>
+                  <!-- Tail -->
+                  <a-cone
+                      class="head"
+                      opacity="0.8"
+                      transparent="true"
+                      position="0 0 0"
+                      rotation="0 90 90"
+                      radius-bottom="0.5"
+                      scale="1 2 1"
+                          >
+                  </a-cone>
+              </a-entity>
+            </a-entity>
+          </a-entity>
+        </template>
+      </a-assets>
+
+      <!-- Player/User entity -->
+      <a-entity
+        id = "rig"
+        class = "rig"
+        networked="template:#avatar-template;attachTemplateToLocal:false;"
+        movement-controls="fly: true; "
+        spawn-in-circle="radius:3"
+        position="0 0 0"
+        rotation = "0 0 0"
+        >
+        <a-entity
+          id="player"
+          class="player"
+          camera
+          look-controls
+          rotation="0 45 0"
+        >
+          <!-- Important: Syncs with cone in avatar-template to provide syncronous color.
+           See NAF schema near bottom of page for details on which player properties are synced on the network. -->
+          <a-cone class="head"
+            visible="false"
+            random-color="min: 0.0 0.0 0.0; max: 1.0 1.0 1.0"
+          ></a-cone>
+        </a-entity>
+      </a-entity>
+      
+      <!-- Play-On-Click Trigger-->
+      <a-entity play-on-click></a-entity>
+
+      <!--    Lights    -->
+      <a-entity
+        id="ambientLight"
+        light="color: #ffffff; intensity: 1; type: ambient;"
+        visible=""
+      ></a-entity>
+      
+      <!-- Positional Light
+            <!-- Positional Light -->
+      <a-entity
+        id="overheadLight"
+        light="color: #ffffff; intensity: .5; type: directional;"
+        position="0 6 0"
+      ></a-entity> 
+
+      <!--      Sky     -->
+      <!-- Skybox for the gallery. Image is optional. Image will not be visible if color is black (#000000) -->
+      <!-- <img id="sky" src="https://cdn.glitch.com/737ff51d-a65d-4003-bd13-f9623820980f%2FJudithHouse.png?v=1602524686235"  crossorigin="anonymous" /> -->
+      <a-sky src="#sky" color="#000000" rotation="0 -90 0"></a-sky>
+
+      <!--     Ground      -->
+      <!-- Ground plane affected by skybox. Image is optional. Depends on skybox for reflections by default -->
+      <!-- <img id="ground" src="https://cdn.glitch.com/737ff51d-a65d-4003-bd13-f9623820980f%2FSidewalkGrid-01.jpg?v=1600713588667" crossorigin="anonymous" />
+      -->
+      <!--<a-entity
+        id="scenery"
+        position="0 0 0"
+        geometry="primitive: plane; width: 1000; height: 1000;"
+        rotation="-90 0 0"
+        material="src: #ground; repeat: 1000 1000; color: #484848; sphericalEnvMap: #sky;"
+      >
+      </a-entity> -->
+
+      <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    SCENE CONTENT SECTION 
+    *************************************************************
+    *****************************************************************
+    * Below is where the content of the gallery is stored. 
+    * The code you use will depend on the file type.
+    *
+    For GLTF, use the syntax:
+      <a-gltf-model 
+        id="nameOfTheAsset" 
+        src="YYYY" 
+        position="0 0 0" 
+        rotation="0 0 0" 
+        scale="1 1 1">
+      </a-gltf-model>
+      Docs: https://aframe.io/docs/1.2.0/components/gltf-model.html
+    YYYY - #ID of the .obj file from the Asset Loading section
+
+    For OBJ, use the syntax:
+      <a-obj-model 
+        id="nameOfTheAsset"  
+        src="YYYY" 
+        mtl="ZZZZ" 
+        position="0 0 0" 
+        rotation="0 0 0" 
+        scale="1 1 1">
+      </a-obj-model>
+    YYYY - #ID of the .obj file from the Asset Loading section
+    ZZZZ - #ID of the .mtl file from the Asset Loading section
+
+    For PLY (Pointcloud), use the syntax:
+      <a-pointcloud 
+        id="nameOfTheAsset" 
+        position="0 0 0"
+        scale="1 1 1"
+        src="YYYY" 
+        size="0.001">
+      </a-pointcloud>
+    YYYY - direct URL or an #ID reference of a .ply file
+    scale is size of pointcloud
+    size is the size of the points in the pointcloud
+
+    For more options see the User Manual or A-Frame's general documentation.
+
+    *************************************************************
+    ****************************************************************-->
+      
+      <!-- Environment Group 
+       You can modify the position, scale, and rotation of this to affect all
+          entities between its tags (its children)
+        Handy when you need to adjust the entire world rather than adjusting 
+          individual objects manually.
+      -->
+      <a-entity
+        id="environmentGroup"
+        position="0 -2 0"
+                >
+        <!-- PLINTH 
+      Plinth is a flat cylinder. To change color, replace grey with an html color name or code. Code will be a #FFFFFF format.
+      To make completely opaque, make opacity="1"-->
+        <a-cylinder
+          color="grey"
+          opacity="0.7"
+          height="0.05"
+          radius="4"
+          position="0 1 0"
+        ></a-cylinder>
+
+        <!-- Sample Pointcloud  with a rotational element-->
+        <a-pointcloud
+          src="https://cdn.glitch.com/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2FDragon_v14_resampled.ply?v=1630007840857"
+          scale="1 1 1"
+          position="0 2 0"
+          size="0.002"
+          rotate-time="rotationSpeed: 0 0.02 0"
+        >
+        </a-pointcloud>
+
+        <!-- Rotation / Changing Scale Example -->
+        <a-box 
+          color="tomato" 
+          position="3 2 3"
+          depth="0.5" height="0.5" width="0.5"
+          rotate-time="rotationSpeed: 0.01 -0.01 0.02"
+          scale-time="scaleSpeed: 0 0 0.000001"
+          >
+        </a-box>
+
+        <!-- Hyperlink Hotspot Example 
+          refer to https://www.w3schools.com/jsref/met_win_open.asp
+          'name' property lists different target methods; default is _blank
+        -->
+        <a-box 
+          color="yellow" 
+          position="5 2 5"
+          depth="0.5" height="0.5" width="0.5"
+          hotspot-hyperlink="url: https://www.ocadu.ca/; target: _blank"
+          >
+        </a-box>
+
+        <!-- Delayed Scale example -->
+        <a-sphere
+          color="green" 
+          position="-3 2 -3"
+          depth="0.5" height="0.5" width="0.5"
+          delayed-scale
+          >
+        </a-sphere>
+        
+        
+        <!-- 3D Sound Example -->
+        <a-cone
+            color="blue" 
+            position="3 2 -3"
+            rotation="90 90 0"
+            radius-bottom=".2" radius-top="0.05"
+            sound="autoplay: true; loop: true; rolloffFactor: 8; src: #spatialSound"
+                  >
+        </a-cone>
+        
+
+
+        <a-box 
+          color="orange" 
+          position="5 2 -5"
+          scale="0.5 0.5 0.5"
+          hotspot-teleport="detectionBox: 0.5 0.5 0.5; targetPos: 0 2 0"
+          >
+        </a-box>
+
+        <!-- Video Plane Example -->
+        <a-video 
+          src="#felix"        
+          width="4"
+          height="3"     
+          rotation="0 135 0"
+          position="-3 3 3"
+          media-control="id_media: felix; startTime: 20;"
+          >  
+        </a-video>
+
+        <!-- OBJ Example 
+        Note: arrowOBJ and arrowMTL are loaded in the Assets section.
+          If you want graphic textures, it needs to be embeded on export in the MTL; can't use external images.
+        I highly recommend just exporting a single glTF / .glb file instead; much easier and has images embedded -->
+        <a-obj-model 
+          id="upArrow"  
+          src="#arrowOBJ" 
+          mtl="#arrowMTL" 
+          position="7 7 7" 
+          rotation="0 0 0" 
+          scale="1 1 1">
+        </a-obj-model>
+      </a-entity>
+      
+    </a-scene> <!-- End of Scene; any object tags placed after this won't show up. -->
+
+    <!-- Post-Scripts: Operate after other properties are loaded -->
+    <script>
+      // This script is to make modifications to improve mobile experiences
+      // e.g. adding the twoway motion component to the player
+      var isMobile = AFRAME.utils.device.isMobile();
+
+      if (isMobile) {
+
+      }
+
+      // Networked Properties schema
+      /* These are the properties of the player entity and other players that are synchronized with the network 
+          avatar-template elements are for all users, and player elements are unique to the player.
+          See https://github.com/networked-aframe/networked-aframe/blob/master/docs/getting-started-local.md
+          (See Avatar and Player/User Entity sections)
+      */
+      NAF.schemas.add({
+        template: "#avatar-template",
+        components: [
+          "position",
+          {
+            selector: ".player",
+            component: "rotation",
+          },
+          {
+            selector: ".head",
+            component: "material",
+            property: "color"
+          }
+        ]
+      });
+      
+      // Include externally-referenced HTML content as tagged
+      includeHTML();
+    </script>
+  </body>
+</html>

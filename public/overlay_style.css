@@ -1,0 +1,168 @@
+/* Style Sheet for Gallery Overlay */
+
+.imageStd {
+  /* Standard Images */
+  max-width: 100%;
+  max-height: auto%;
+  display: block;
+}
+
+.overlayBtn,
+.overlayPanel,
+.overlayPanelCenter {
+  /* Generic Overlay Font/Style Characteristics */
+  font-family: Helvetica, sans-serif;
+  color: white;
+  background: black;
+  border: 3px solid #FFFFFF;
+}
+
+a:link,
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: yellow;
+}
+
+a:active {
+  color: orange;
+}
+
+.overlayPanel,
+.overlayPanelCenter {
+  /* General Overlay panel attributes */
+  position: fixed;
+  z-index: 1;
+  display: none;
+  text-align: left;
+}
+
+.overlayPanel {
+  /* Left-hand overlay pane */
+  width: 25em;
+  height: 100%;
+}
+
+.overlayPanelCenter {
+  /* Centered splash panel */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: auto;
+}
+
+.overlayScrollField {
+  overflow: auto;
+}
+
+#click-anywhere-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.overlayGreyout {
+  position: fixed;
+  z-index: 2;
+  background-color: #33333344;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
+
+#click-anywhere-banner {
+  display: none;
+}
+
+#infoOverlay {
+  /*  */
+  position: fixed;
+  z-index: 2;
+}
+
+#overlayBtns {
+  position: fixed;
+}
+
+/* General Buttons for Overlay Panels */
+#infoButton,
+#ctrlButton,
+#mapButton,
+#homeButton {
+  /* Overlay buttons */
+  display: inline-block;
+  text-align: center;
+  position: fixed;
+  top: 195px;
+  width: 60px;
+  right: 20px;
+  color: #ffffffdd;
+  user-select: none;
+}
+
+/* Highlight buttons */
+#infoButton:hover,
+#ctrlButton:hover,
+#mapButton:hover,
+#homeButton:hover {
+  color: grey;
+}
+
+/* Vertical Button Positioning*/
+#infoButton {
+  top: 15px;
+}
+#ctrlButton {
+  top: 75px;
+}
+#mapButton {
+  top: 135px;
+}
+#homeButton {
+  top: 195px;
+}
+
+/* Buttons for closing panels */
+#closeInfoWindowButton,
+#closeCtrlWindowButton,
+#closeMapWindowButton {
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 0;
+  width: 30px;
+}
+
+/* Local navigation bar */
+#neighbours {
+  position: absolute;
+  bottom: 0;
+}
+
+/* */
+#neighbourRow {
+  margin: auto;
+}
+#neighLeftChev {
+}
+
+#neighRightChev {
+  text-align: right;
+}
+
+#neighLeftDiv {
+  font-size: 12px;
+}
+#neighRightDiv {
+  text-align: right;
+  font-size: 12px;
+}
+: capitalize;
+}

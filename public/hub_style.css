@@ -1,0 +1,100 @@
+/* Style Sheet for the Gallery Hubs */
+.button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline;
+    font-size: 16px;
+    margin: 10px auto;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: #FFD100; 
+    color: black; 
+    border: 2px solid black;
+    position: relative;
+    min-width: 200px;
+    width: 33%;
+    min-height: 150px;
+    float: center;
+}
+
+.templates {
+  background-color: #ffae21;
+}
+
+.button:hover {
+    background-color: black;
+    color: #FFD100;
+    border: 2px solid #FFD100;
+}
+
+.container {
+    position: relative;
+    padding: 1%;
+    font-size: 22px;
+    max-width: 1200px;
+} 
+.container.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container:after {
+    display: table;
+    clear: both;
+    content: '';
+}
+
+.bottom{
+    position:absolute;
+    top:95%;
+}
+
+h3, h2 {
+    text-transform: uppercase;
+    margin: 0px 0px 10px 0px;
+}
+
+h2.small {
+    font-size: 22px;
+}
+
+h3.small {
+    font-size: 18px;
+}
+
+.white {
+    color: white;
+}
+
+p {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+}
+
+body {
+    background: black;
+    height: 100vh;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    font-family: 'Roboto';
+}
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: grey;
+}
+
+/* mouse over link */
+a:hover {
+    color: yellow;
+}
