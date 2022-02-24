@@ -6,21 +6,17 @@ December 2021
 DEPENDENT ON gallerymap.js
 */
 
-// Gather gallery records https://stackoverflow.com/questions/58580824/in-javascript-how-to-import-an-array-from-another-javascript-file
-//import {} from 'https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js';
-//import {galleries} from './gallerymap.js';
-
 function preload() {
   
-  // Load planet candidates
-  sphere1 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0001_Layer-6.png?v=1638905525089');
+  // Load planet image options
+  //sphere1 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0001_Layer-6.png?v=1638905525089');
   sphere2 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0006_Layer-2.png?v=1638905525090');
-  sphere3 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0003_Layer-5.png?v=1638905525090');
-  sphere4 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0007_Layer-1.png?v=1638905525090');
-  sphere5 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0000_Layer-7.png?v=1638905525090');
-  sphere6 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0002_Sphere.png?v=1638905525090');
-  sphere7 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0005_Layer-3.png?v=16389055250890');
-  sphere8 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0004_Layer-4.png?v=1638905525090');
+  //sphere3 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0003_Layer-5.png?v=1638905525090');
+  //sphere4 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0007_Layer-1.png?v=1638905525090');
+  //sphere5 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0000_Layer-7.png?v=1638905525090');
+  //sphere6 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0002_Sphere.png?v=1638905525090');
+  //sphere7 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0005_Layer-3.png?v=16389055250890');
+  //sphere8 = loadImage('https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Fsphere_0004_Layer-4.png?v=1638905525090');
 }
 
 function setup() {
@@ -29,7 +25,7 @@ function setup() {
   cnv = createCanvas(windowWidth, windowHeight); 
   resetWindowValues();
   
-  // Sun and Planet Images
+  // Sun and Planet Images 
   sunSphere = sphere2;
   planetSphere = sphere2;
   

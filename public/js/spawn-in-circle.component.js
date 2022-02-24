@@ -21,27 +21,6 @@ AFRAME.registerComponent('spawn-in-circle', {
     var angleDeg = angleRad * 180 / Math.PI;
     var angleToCenter = angleDeg + 180;
     var angleRad = angleToCenter * Math.PI /180;
-    
-    
-    // Affect Rotation
-    // Doesn't seem to work as intended at present; can't affect camera rotation
-    /*
-    var model = document.getElementById(this.data.model)
-    console.log('model obj', model);
-    var yOffset = model.getAttribute('rotation').y
-    console.log('model y angle offset', yOffset);
-    yOffset = 0;
-    //cam.setAttribute('rotation', {x: 0, y: angleDeg + yOffset, z: 0});
-    //model.object3D.rotation.set(0, angleToCenter, 0);
-    this.el.setAttribute('rotation', {
-        x: this.el.object3D.rotation.x ,
-        y: this.el.object3D.rotation.y + angleToCenter,
-        z: this.el.object3D.rotation.z });
-    
-    
-    console.log('angle deg', angleDeg);
-    console.log('model obj', model);
-    */
   },
 
   getRandomAngleInRadians: function() {
