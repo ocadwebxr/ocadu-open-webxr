@@ -15,43 +15,6 @@ Sample usage:
 </a-entitiy>
 */
 
-// Used to enable up/down movement
-// Currently broken; do not use. /////////////////
-AFRAME.registerComponent('toggle-float',{
-  schema: {
-    
-  },
-  
-  init: function() {
-    // This allows us to reference key events 
-    
-    this.player = document.getElementById('player');
-    this.shiftHeld = false;
-    
-    document.addEventListener('keydown', (event) => {
-        if (event.shiftKey) {
-          this.shiftHeld = true;
-        } 
-      }, false);
-
-      document.addEventListener('keyup', (event) => {
-        if (event.shiftKey) {
-          this.shiftHeld = false;
-        }
-      }, false); 
-  },
-  
-      tick: function(time, timeDelta) {
-      if (this.shiftHeld) {
-        this.player.setAttribute('wasd-controls', 'wsAxis', 'y');
-          this.player.setAttribute('wasd-controls', 'wsInverted', true);
-      } else {
-        this.player.setAttribute('wasd-controls', 'wsAxis', 'z');
-          this.player.setAttribute('wasd-controls', 'wsInverted', false);
-      }
-    }
-});
-
 /*  rotate-time
     Simple rotation over time in 3 axes
 */

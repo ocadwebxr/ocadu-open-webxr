@@ -7,6 +7,8 @@ This project was made possible with funding by the Government of Ontario and thr
 ## Sister Projects
 (TBA)
 
+---------
+
 # User Manual
 #### Getting Started with the WebXR Platform
 Updated 2022-02-07
@@ -347,13 +349,13 @@ You can also check out [NPM's listing of A-Frame components](https://www.npmjs.c
                                               
 The gallery template features a pointcloud artwork created and provided courtesy of Pau Aviles.
            
-The cartoon featured in the gallery template is a clip from [Felix: Doubles for Darwin](https://archive.org/details/Felix_DoublesforDarwin_NoAudio), a public domain cartoon produced in 1924 by Margaret J. Winkler and Patrick Sullivan.
+The cartoon used in the gallery template is [Felix: Doubles for Darwin](https://archive.org/details/Felix_DoublesforDarwin_NoAudio), produced in 1924 by Margaret J. Winkler and Patrick Sullivan and presently under public domain.
                                               
-The audio featured in the gallery template is [Blue Grass Blues as performed by the Chicago Blues Dance Orchestra](https://archive.org/details/78_blue-grass-blues_chicago-blues-dance-orchestra_gbia0278941a/BLUE+GRASS+BLUES+-+CHICAGO+BLUES+DANCE+ORCHESTRA.flac), a public domain audio recording produced in 1923.
+The audio featured in the gallery template is [Blue Grass Blues as performed by the Chicago Blues Dance Orchestra](https://archive.org/details/78_blue-grass-blues_chicago-blues-dance-orchestra_gbia0278941a/BLUE+GRASS+BLUES+-+CHICAGO+BLUES+DANCE+ORCHESTRA.flac), published in 1923 and presently under public domain.
                                               
 ### Javascript Dependencies
                                               
-This project incorporates the following javascript libraries:
+This project incorporates the following JavaScript libraries:
   
 - [A-Frame](https://aframe.io)
 - [A-Frame Extras](https://github.com/n5ro/aframe-extras)
