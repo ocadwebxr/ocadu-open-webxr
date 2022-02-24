@@ -1,6 +1,9 @@
 # OCAD University Open WebXR Template for A-Frame
+Updated 2022-02-24
 
 OCAD University Open WebXR is an open-source A-Frame project template for building AR/VR gallery spaces for a variety of digital media. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
+
+Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr) and [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
@@ -10,8 +13,6 @@ This project was made possible with funding by the Government of Ontario and thr
 ---------
 
 # User Manual
-#### Getting Started with the WebXR Platform
-Updated 2022-02-07
 
 Having trouble? 
 
