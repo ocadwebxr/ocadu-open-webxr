@@ -9,7 +9,8 @@ Make a copy of this and change the domain for the sitemap.js file in each HTML d
 For galleries to link back to your gallery hub and collect information from this document, make sure that they reference this particular JS file in their respective <gallery>.html pages.
 */
 
-const hubURL = "/index_canvas.html";
+const hubURL = "/index.html";
+//const hubURL = "/index_canvas.html";  // For using the planetary gallery homepage
 
 /* Array of arrays containing gallery page information
   1) URL of Gallery
