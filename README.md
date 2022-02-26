@@ -1,71 +1,84 @@
 # OCAD University Open WebXR Template for A-Frame
-Updated 2022-02-24
+Updated 2022-02-25
 
-OCAD University Open WebXR is an open-source A-Frame project template for building AR/VR gallery spaces for a variety of digital media. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
+OCAD University Open WebXR is a free and open-source A-Frame project template for staging and showcasing digital work in an Extended Reality (XR) space. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
 
-Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr) and [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
+The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser. It is built on [ThreeJS](https://threejs.org). A-Frame, and the WebXR platform, are accessed using a [HTML](https://html.com/)-based code language. 
+
+Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
-## Sister Projects
-(TBA)
+This software is provided without warranty or liability.
 
----------
-
-# User Manual
-
-Having trouble? 
-
-Contact [ocadwebxr@gmail.com](mailto:ocadwebxr@gmail.com) with a description and/or screenshots of any issues you may be encountering and we will do our best to assist you.
+### Sister Projects
+[WebXR NodeLab](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
+(+TBA)
 
 ---------
 
 ## Table of contents
 (Use Ctrl+F / ⌘F to navigate the manual quickly)
 
+<b>User Manual</b>
 1. Getting Started
-2. The Gallery Hub
+2. Accessing Your Project
 3. Viewing the Galleries
-4. Media Preparation
-5. Uploading Your Work
-6. Staging Your Work
-    * Initializing a Gallery
+4. Initializing a Gallery
+5. Staging Assets
+    * The A-Frame Inspector
+6. Incorporating Non-Primitive Assets
+    * Media Preparation
+    * Uploading Your Work
     * Preloading Assets
-    * Staging Assets (Models, Point Clouds, Sound, Video)
-7. Modifying the Gallery Environment 
-    * Lights, Sky, Ground, Particles, Avatar
-8. Staging Other Content
-9. Modifying Overlay Content
-10. A-Frame Components
-11. Troubleshooting Notes
-12. Asset Acknowledgements
+7. Overlay Content and the Gallery Hub Network
+8. A Note About Debugging
+
+<b>A-Frame Entity Tag Guide</b>
+1. Intro
+    * Staging Models
+    * Staging Point Clouds
+    * Staging Video
+    * Staging Sound
+    * Staging Other Content
+2. Modifying the Gallery Environment 
+    * Lights
+    * The Skybox
+    * The Ground
+    * Avatars
+3. Custom A-Frame Components
+
+<b>Asset Acknowledgements</b>
 
 ---------
 
-## Getting Started ##
+# User Manual
 
-The OCAD U Open WebXR platform is a free and open resource for staging and showcasing digital work in an Extended Reality (XR) space. Our demonstration gallery is hosted at [https://ocadu-web-xr.glitch.me/](https://ocadu-web-xr.glitch.me/). 
+This guide is a detailed guide on how to prepare a Open WebXR Gallery.
 
-The source code for our WebXR platform is hosted on the [OCAD U Open WebXR project page at Glitch.com](https://glitch.com/~ocadu-web-xr). Glitch is a free web and app hosting and code 'remixing' service, where users with registered Glitch accounts can adopt copies of other users projects and edit them as they like. [Click here](https://glitch.com/signup) to create a Glitch account. 
-
-As a Glitch user, clicking the 'Remix This' button on the project page will save a copy of the project to your Glitch account; this will create a copy of the platform that you can freely edit yourself or alongside collaborators. Glitch will randomly generate a whimsical name for your project (upper left), but you can rename it to something else if you'd like. Alternatively, you can review the source code directly from the project page or access our mirror on Github.
-
-If you want to access your project later, click your account icon in the top right of Glitch.com twice to go to your profile page; your project should be listed there.
-
-Glitch features a live code editing environment (IDE) hosted in the browser. You do not need to have any other software installed. Learn more about Glitch at the [Glitch Help Center](https://help.glitch.com/home/).
-
-If you want to <b>collaborate</b> on your project with others, click the 'Share' button in the top left of the project editor, search for your collaborator's username, and click 'Send Invite'.
+You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
 ---------
 
-## The Gallery Hub
+## Getting Started
 
-All galleries in your project are accessible from the project home page. By default, this is the first page that appears in the right side panel.
-Click 'Change URL' to find your root URL. If you copy this url into your browser URL bar, you can access your home page directly. You can later use this field to modify the page that appears every time your code is modified (e.g. try typing 'gallery_template.html' here).
+Open WebXR is hosted on [Glitch](https://glitch.com/~ocadu-open-webxr) and [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). We recommend that users new to programming use Glitch, a free web and app hosting and code 'remixing' service, where users with registered Glitch accounts can adopt copies of other users projectsm edit them as they like, and collaborate live with other Glitch users. Our README is focused towards introducing users to the Glitch workflow, but more advanced users may prefer to fork or clone the repository directly from GitHub and host and edit the project using their preferred set of software tools.
 
-If we want to modify this page, we can open the 'public/' dropdown and click 'index.html'.
+Getting started with Open WebXR is as easy as [setting up a Glitch account](https://glitch.com/signup), navigating to our [Open WebXR Project page on Glitch](https://glitch.com/~ocadu-open-webxr) and clicking 'Remix This' add an editable copy of the template project to your new account. Glitch will randomly generate a whimsical name for your project (in the upper left of the project editor), but you can rename it to something else by clicking 'Edit details' on your new project page (https://glitch.com/~your-new-project). If you want to access your project later, click your account icon in the top right of Glitch.com, then click 'Your Projects'; all of your project should be listed there. Alternatively, go to "https://glitch.com/@X", replacing 'X' with your Glitch username, and scroll to the bottom to see your recent projects.
 
-Here, you can modify the text that is displayed on the gallery hub as you see fit. If you want to create a new gallery link button, you can copy and paste the existing gallery buttons which look roughly like this:
+Glitch features a live code editing environment (IDE) hosted in the browser; you do not need to have any other software installed. You can learn more about Glitch at the [Glitch Help Center](https://help.glitch.com/home/).
+
+To <b>collaborate</b> on your project with others, click the 'Share' button in the top left of the project editor and under "Invite project members", search for your collaborator's Glitch username, and click 'Send Invite'. Projects you are invited to will appear in the 'Your Projects' page under the 'member of' filter.
+
+---------
+
+## Accessing Your Project
+
+You can access your project's code editor by clicking 'Edit Project' from your project page. The center of the code editor is the text editor window, while the lefthand panel is the project heirarchy, which contains all the files in the project. You can access your project's home page directly from "http://your-project-name.glitch.me", or click 'Preview' at the bottom of the code editor screen to open up a new browser tab or preview pane on the righthand side of the code editor. 
+
+All galleries in your project are accessible from the project home page, 'index.html', found under the '/public' folder dropdown in the project hierarchy. The default 'index.html' homepage acts as a gallery hub for navigating between galleries. Clicking 'index.html' in the project hierarchy displays the HTML code for the home page, which features a simple set of button tags with URLs and text fields that can be modified to link to any galleries in your project domain. Later in this guide we will demonstrate how to create the actual WebXR environments to showcase our projects, but it's good to be roughly familiar with this page when we later wish to navigate to our media. 
+
+If you want to create a new gallery link button, you can copy and paste an existing gallery button and modify it as you'd like:
 ```
 <button class="button" onclick="window.location.href='YOURURL';"> <!-- Replace YOURURL with the link you want to navigate to -->
   <h3>Room Zero</h3>    
@@ -74,99 +87,44 @@ Here, you can modify the text that is displayed on the gallery hub as you see fi
 </button>
 ```
 
-If you want to adjust the style of the gallery hub you can open and modify the 'hub_style.css' file in the left-side file browser. Try making some simple adjustments to get familiar with the style sheet. For more information on modifying CSS files, check out [Mozilla's Basic CSS tutorial](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
+We will cover how to edit the appearance of the Gallery Hub as well as more advanced page navigation features in a later section of the README.
 
 ---------
 
 ## Viewing the Galleries
 
-The default index.html homepage acts as a gallery hub for navigating between galleries. The HTML code features a simple set of button tags with URLs that can be modified to link to any galleries in your project domain.
+To open the template gallery, open the project homepage and click the 'Template Room' button. 
 
 Each WebXR gallery space supports several means of navigation:
 - Use the arrow keys and WASD to move. 
 - Click and drag the mouse to look around.
 - On a smartphone, turn the phone to look around. Tap and hold to move forward.
-- If you have a VR headset plugged in, you can view your work in VR by clicking the VR icon.
+- If you have a compatible VR headset, you can view your work in VR by clicking the VR icon.
 
-Note that the space is not constrained by physics; there is no gravity by default.
-
----------
-
-## Media Preparation
-
-When you have pointclouds, images, models and/or video ready to upload, it is critical to optimize your work ahead of uploading it to ensure galleries run smoothly across various devices. 
-
-In your pointcloud or 3d modelling software, make sure that the origin of your 3D object or point cloud is located at 0,0,0 ; this ensures that any transformations made to the object in the WebXR environment are relative to the center of the object.
-
-There are many ways to optimize the file size of your work depending on the medium. Some good rules of thumb:
-
-- Export at the smallest size and/or resolution that you can afford
-- Export on lower quality settings
-- On models or point clouds, remove unnecessary or unseen geometry
-- Remove any metadata
-
-For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg)
-
-For 3D models or pointclouds, you can use [Draco](https://google.github.io/draco/) before submitting. Draco is an open-source library for compressing and decompressing 3D geometric meshes and point clouds. Learn more about Draco [here](https://google.github.io/draco/).
+Descriptions of the controls are also available by clicking the gamepad icon; you can modify this description by modifying the file 'public/controls.html' in the code editor's folder hierarchy.
 
 ---------
 
-## Uploading Your Work
+## Initializing a Gallery
 
-[![Uploading your work tutorial video](https://img.youtube.com/vi/VyrIb0-ihUo/0.jpg)](https://www.youtube.com/watch?v=VyrIb0-ihUo)
+Galleries in Open WebXR are built on A-Frame, a JavaScript framework for AR/VR experiences on the web.
 
-First, you will need to [upload your work as an Asset to Glitch](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/).
+Open WebXR galleries are best created from copies of the 'public/gallery_template.html' page in our folder hierarchy. We can create a copy of this page by hovering our mouse over and clicking the triple dot icon, then clicking 'duplicate'. Give the duplicate page a unique name starting with 'public/' and ending with '.html' such as "public/GALLERYNAME.html". This will be your gallery page. You can access your new copy of the template at "http://your-project-name.glitch.me/GALLERYNAME.html". 
 
-1. Open the WebXR Platform code editor for your remixed project (see Getting Started)
-2. In the menu in the left panel, look for the 'assets' folder directly below the 'New File' dropdown; open the folder.
-3. Drag and drop your work into the assets window or click the 'Upload an Asset' button and select your work from your computer.
-4. After your work is finished uploading, you may now reference your asset throughout your project by clicking the asset's icon and copying the link provided. 
+With your new gallery created, there are a few important changes you must make to the file. We highly recommend using Glitch's search feature to navigate the code browser and find sections fast (click anywhere in the code and press Ctrl+F / ⌘F) as you don't need to know the details of the HTML document just yet; after clicking anywhere in the text window and pressing the command, a search bar will appear in the top right. 
 
-Please note that these asset links can only be referenced by files within your Glitch project; referencing them outside of your project or within 
-
-For more information on uploading assets, click [here](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/).
+1. Open your new 'public/GALLERYNAME.html' file by clicking it in the folder hierarchy.
+2. In the 'Header Metadata Section' of your new file (Ctrl+F / ⌘F), look for the 'title' tag and replace it with a title of your choosing; this is your browser tab title. After this, change the 'myPageID' value to any random five characters or numbers, e.g. "BIRD5".
+3. Go to the 'Scene Loading' section (Ctrl+F / ⌘F) and replace the phrase 'network-room-name' with any unique phrase of your choosing (no spaces). 
+4. Update the 'public/index.html' page with a new button for your project as described in "Accessing Your Project", replacing 'YOURURL' with '/GALLERYNAME.html'
 
 ---------
 
-## Staging Your Work
+## Staging Assets
 
-The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser. It is built on [ThreeJS](https://threejs.org). A-Frame, and the WebXR platform, are accessed using a [HTML](https://html.com/)-based code language. 
-You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
+Open WebXR is built with A-Frame. We will cover the basics of A-Frame that you need to know to get started. For complete documentation on A-Frame, click [here](https://aframe.io/docs/1.2.0/introduction/).
 
-For the complete documentation on A-Frame, click [here](https://aframe.io/docs/1.2.0/introduction/).
-
-### Initializing a Gallery
-
-1. Open your 'Remixed' copy of the WebXR platform in code editor mode (from your project page, click 'Edit Project'). If you haven't Remixed the original WebXR platform, refer to the 'Getting Started' section of this user manual.
-2. Update the name of your project by clicking on the dropdown in the top-left corner of the code editor and modifying the project name text field. This will be your project domain's name.
-3. Open the 'public' dropdown and hover over 'gallery_template.html'. Click the three-dot menu beside this file and select 'Duplicate'.
-4. Give the duplicate page a unique name starting with 'public/' and ending with '.html' such as "public/GALLERYNAME.html". This will be your gallery page. You can access it at (your project domain name).glitch.me/GALLERYNAME.html. 
-
-With your new gallery created, there are a few important changes you must make to the file.
-
-1. In the 'Header Metadata Section' at the beginning of the new GALLERYNAME.html file's code, look for the 'title' tag and replace it with a title of your choosing. This is the text that will appear in your browser tab when visiting the gallery. After this, change the 'myPageID' value to any random five characters or numbers, e.g. "BIRD5"; this code can be optionally used for gallery mapping.
-2. Go to the 'Scene Loading' section and replace the phrase 'network-room-name' with any unique phrase of your choosing. This ensures that your gallery visitors are unique from any other gallery; otherwise, visitors to the template gallery will also appear to be in your new gallery.
-3. Open the 'index.html' page and create a new button (see The Gallery Hub section of this user manual). Use the URL '/GALLERYNAME.html'; the slash indicates that your browser should open up the file 'GALLERYNAME.html' in the same folder as your 'index.html' page.
-
-We highly recommend using Glitch's search feature to navigate the code browser and find sections faster (click anywhere in the code and press Ctrl+F / ⌘F). 
-
-### Preloading Assets
-
-Preloading assets ensures that your media is loaded before the user is permitted in the gallery. It also helps reduce redundant loading calls to the same resource, improving performance. At present, this feature is supported for all types of asset files EXCEPT pointclouds.
-
-To prepare your media for preloading, do the following:
-
-[![Linking your work tutorial video](https://img.youtube.com/vi/S1ySPLaN6W4/0.jpg)](https://www.youtube.com/watch?v=S1ySPLaN6W4)
-
-1. Scroll to the 'ASSET LOADING SECTION' in the gallery code base (use Ctrl+F / ⌘F); this is the Assets Loading section, where you will tell the code to label and load any assets you have added.
-2. Paste the following code: `<a-asset-item id="XXXX" src="#YYYY"></a-asset-item>` Replace XXXX with a brief one-word label for the work; you will use this term to reference the asset when staging it later. If the asset is an audio, video, or image asset, replace 'a-asset-item' with 'audio', 'video', or 'img' respectively.
-3. After uploading your work to the [assets folder](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/), select the asset and click Copy Link. Replace YYYY in step 2 with the link you copied. 
-
-If your asset is particularly large, you may want to add the `preload="auto"` attribute to your asset item tag. This will force the asset to be loaded before the scene starts, ensuring that the asset reliably appears in the scene. Note that this is not be a substitute for Media Preparation; every time your site is opened, visitors will need to download all the content you have uploaded, so be sure to be careful about the size of your assets. You can also add the attribute 'timeout="10000"' to the `<scene>` tag to tell A-Frame to wait at least 10 seconds (10000 milliseconds) before giving up trying to load your assets, but we highly recommend reducing the size of your assets before resorting to increasing your visitor's loading times.
-
-### Staging Assets
-
-Everything in an A-Frame gallery is part of a 'scene'; all assets loaded into a scene must be enclosed within the 'a-scene' tag. You can find this in the gallery code base by scrolling to the 'SCENE CONTENT SECTION' (use Ctrl+F / ⌘F). Our sample gallery comes with a 'plinth' cylinder primitive to demonstrate.
+Everything in an A-Frame gallery is part of a 'scene'; all assets loaded into a scene must be enclosed within the 'a-scene' tag. You can find this in the gallery code base 'SCENE CONTENT SECTION' (Ctrl+F / ⌘F). For example, our sample gallery comes with a 'plinth' cylinder primitive in this section to demonstrate basic 3D objects.
 
 Asset objects have tags that indicate that a preloaded asset must be placed in a particular position in the scene world. Below are some examples of simple primitives that you can add to your scene:
 ```
@@ -175,67 +133,208 @@ Asset objects have tags that indicate that a preloaded asset must be placed in a
 <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
 <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
 ```
-After inserting these tags, the objects will appear in the scene with the attribues specified (radius, rotation, position, etc.). If you would like to add more complicated objects to your scene, you will find more information on staging models, point clouds and videos in the following subsections.
+As shown above, each tag pair has attributes such as position, rotation and color that define its physical or behavior properties. If you want to transform the position, scale or rotation of an object relative to another object's position, you can place the object's tag inside of the other as follows:
+```
+<a-box position="-1 0 -3" rotation="0 45 0" color="#4CC3D9">
+  <a-sphere position="0 0 5" radius="1.25" color="#EF2D5E"></a-sphere>
+</a-box>
+```
+In the example above, our box is located at (-1, 0, -3) while our sphere is located at (0, 0, 5) relative to the box, or (-1, 0, 2) in the world space. 
 
-Note that if you ever need to undo changes you've made, in addition to Ctrl+Z (the Undo function) you can click Tools->Rewind from the bottom of the file browser and roll back to previous file states.
+After inserting these tags, the objects will appear in the scene. Previewing your changes is as easy as opening the Glitch preview panel and navigating to your gallery page from the home page button you created in "Initializing a Gallery". If you would like to add more complicated objects to your scene, you will find more information on staging models, point clouds and videos later in this readme as well as the [A-Frame Documentation](https://aframe.io/docs/1.2.0/introduction/).
+
+If you ever need to undo changes you've made, in addition to Ctrl+Z (the Undo function) you can click Tools->Rewind from the bottom of the code editor and roll back to previous file states as shown in the interactive timeline.
 
 #### The A-Frame Visual Inspector
 
 If you would like to view and modify the properties of these shapes and other objects, you can open up A-Frame's Visual Inspector by pressing 'Ctrl + Alt + I' in your WebXR gallery.
 Once the inspector has loaded, you can select any asset objects in your scene in the left-side panel and modify their properties on the right side panel or by moving them in the debug viewer in the centre of the screen.
 
-IMPORTANT! These changes are not permanent; be sure to copy any values you change back into your object tags to save changes. In older versions of A-Frame, it was possible to copy the new HTML tag representing a modified object by clicking the page icon in the top right corner of the inspector window, but this feature seems to have been removed.
+IMPORTANT! These changes are not permanent; be sure to copy any numeric values you change into the object tags of your HTML document to save changes. 
 
 Learn more about A-Frame's Visual Inspector by clicking [here](https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html).
 
-#### Staging Models
+---------
 
-3D models should be in GLTF or OBJ format. GLTF is preferred as they can contain much more useful information about your models in a single file.
+## Incorporating Non-Primitive Assets
 
-[![Staging your work tutorial video](https://img.youtube.com/vi/9DXnENCyHB0/0.jpg)](https://www.youtube.com/watch?v=9DXnENCyHB0)
+In place of primitives, there are a variety of other media assets available that you can insert into your scene such as point clouds, images, models, sound and/or video. You can view a shortlist of available A-Frame entity tags in the <b>A-Frame Entity Tag Guide</b> section of this readme or view the full list of Tags in vanilla A-Frame in the [A-Frame Documentation](https://aframe.io/docs/1.2.0/introduction/), but first you will need to upload your assets to your Glitch Project. The following subsections cover how to prepare and upload your assets for the web gallery.
+
+
+### Media Preparation
+
+When you have media ready to upload, it is critical to optimize your work ahead of uploading it to ensure galleries run smoothly across various devices. In some cases, an asset too large will simply not load and cause your gallery to freeze; try testing out different file sizes on different machines, though we recommend not using more than 30MB of asset data per gallery, ideally closer to 5-10MB.
+
+There are many ways to optimize the file size of your work depending on the medium. Some good rules of thumb:
+
+- Export at the smallest size and/or resolution that you can afford
+- Export on lower quality settings
+- Remove unnecessary or unseen geometry in point clouds or models
+
+For point clouds or 3d models, make sure that the origin of your 3D object or point cloud is located at 0,0,0 ; this ensures that any transformations made to the object in the WebXR environment are relative to the center of the object.
+
+For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg)
+
+For 3D models or point clouds, you can use [Draco](https://google.github.io/draco/) before submitting. Draco is an open-source library for compressing and decompressing 3D geometric meshes and point clouds. Learn more about Draco [here](https://google.github.io/draco/).
+
+There are many video and audio conversion and compression tools available online such as [Format Factory](http://www.pcfreetime.com/formatfactory/index.php?language=en) (though if using Format Factory, be sure not to install any adware that comes with the installer by unchecking the option when prompted). In terms of video and audio formats we recommend MP4 and MP3, though A-Frame is compatible with multiple other offerings.
+
+### Uploading Your Work
+
+First, you will need to [upload your work as an Asset to Glitch](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/).
+
+1. Open the WebXR Platform code editor for your remixed project (see Getting Started)
+2. In the folder hierarchy, click on 'Assets'
+3. Drag and drop your work into the assets window or click the 'Upload an Asset' button and select your work from your computer.
+4. After your work is finished uploading, you may now reference your asset throughout your project by clicking the asset's icon and copying the hyperlink provided. 
+
+Please note that these asset links are intended to be referenced by files within your Glitch project and are not guaranteed to work outside of your project.
+
+For more information on uploading assets, click [here](https://help.glitch.com/kb/article/43-how-do-i-add-assets-like-audio-images-or-videos-to-my-projects/).
+
+### Preloading Assets
+
+While optional, preloading assets ensures that your media is loaded before the user is permitted in the gallery. It also helps reduce redundant loading calls to the same resource, improving performance. At present, this feature is supported for all types of asset files EXCEPT point clouds. All preloading asset tags are placed in the 'Asset Loading Section' of the gallery template.
+
+To prepare your media for preloading, use one of the following tags as appropriate for your media of choice. Replace 'ZZZZ' with the hyperlink you obtained from the 'Uploading Your Work' section. You can use any nickname in place of 'XXXX', the asset tag name; in your A-Frame Entity Tags (see the A-Frame Entity Tag Guide section), replace the src attribute value "#YYYY" with "#XXXX", where 'XXXX' is the asset tag name you invented. For example, if my tag name was 'catSound', then the 'src' attribute would look like `src="#catSound"`.
+
+```
+<!-- Preloading Tags
+XXXX - an identifying nickname for the asset (no spaces)
+Z - the hyperlink to the asset, from the Assets folder in your folder hierarchy
+
+Unless the asset is video, audio, or image, use the a-asset-item tag.
+
+If you want sound to play in your scene as background music instead of positional audio, add the following attributes:
+autoplay - play the media automatically on startup
+loop="true" - start the audio again when it finishes
+-->
+
+<video id="XXXX" src="ZZZZ" crossorigin="anonymous" ></video>             
+<audio id="XXXX" src="ZZZZ" crossorigin="anonymous" ></audio>  
+<img id="XXXX" src="ZZZZ" crossorigin="anonymous" ></img> 
+<a-asset-item id="XXXX" src="ZZZZ" crossorigin="anonymous" ></a-asset-item>  
+```
+
+If your asset is particularly large, you may want to add the `preload="auto"` attribute to your asset item tag. This will force the asset to be loaded before the scene starts, ensuring that the asset reliably appears in the scene. Note that this is not be a substitute for Media Preparation; every time your site is opened, visitors will need to download all the content you have uploaded, so be sure to be careful about the size of your assets. You can also add the attribute 'timeout="10000"' to the `<scene>` tag to tell A-Frame to wait at least 10 seconds (10000 milliseconds) before giving up trying to load your assets, but we highly recommend reducing the size of your assets before resorting to increasing your visitor's loading times.
+
+---------
+
+## Overlay Content and the Gallery Hub Network
+
+When visiting the template gallery, on the right-hand side you will find four 'overlay' buttons: Information, Controls, Sitemap, and Home. 
+* The Information button opens a panel providing information on the artwork or gallery exhibit; we encourage you to fill out the 'Artwork Description Subsection' to describe yourself, your work and its context.
+* The Controls button provides a description of the basic controls for navigating the A-Frame gallery space. This is automatically filled by the 'public/controls.html' file.
+* The Sitemap button links to galleries listed in 'public/js/gallerymap.js' 
+* Finally, the Home button opens the gallery hub index page. 
+
+You can find all of the code for this content in the `Overlay Panels Section` of the template gallery HTML document. If you want to change the links and content for the Home and Sitemap buttons, you can modify 'public/js/gallerymap.js' in your local JS folder; instructions are provided in the file. Note that the alternative 'index_canvas.html' homepage uses these values to populate its gallery links automatically; you may prefer this option over the default homepage. 
+
+You are welcome to remix the styling of this section as you like by modifying the `overlay_style.css` page and by adding additional buttons / panels based on our core feature examples.
+
+If you want to adjust the style of the gallery hub you can open and modify the 'hub_style.css' file in the left-side file browser. Try making some simple adjustments to get familiar with the style sheet. For more information on modifying CSS files, check out [Mozilla's Basic CSS tutorial](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics).
+
+---------
+
+## A Note About Debugging
+
+We've included this section for users unfamiliar with debugging code to help identify some common reasons why things might now work as expected. While learning to debug is outside of the scope of this README, this section briefly points out some common issues that occur in documents regardless of skill level.
+
+Some common errors for all skill levels include ensuring that all HTML tags and quotation marks are closed, minor typographical errors (typos, capitalization), and missing or incorrect symbols (e.g. using '=' instead of ':'). Another good idea is to double check to make sure that your code matches the examples provided in this README or A-Frame's documentation on the relevant element. Glitch also sometimes notifies of errors with red circles, which you can hover over for more information.
+
+It is useful to know that most web browsers have a code debugging inspector that can be opened by pressing 'Ctrl + Shift + I', which may be handy in the event that your gallery suddenly stops working and you cannot diagnose the issue yourself, or if there is a bug in our software outside of your control. Deciphering its interface may be challenging, so we advise to check first that your code does not fall under any of the previous pitfalls.
+
+---------
+
+# A-Frame Entity Tag Guide
+
+The following subsections detail how to setup particular A-Frame entities with premade sample tags that you can copy into your gallery's 'SCENE CONTENT SECTION' (Ctrl + F).
+
+For detailed information covering most of the content in this section, you can read the [A-Frame Documentation](https://aframe.io/docs/1.2.0/introduction/) on the respective material.
+
+--------
+
+### Staging Models
+
+3D models should be in GLTF or OBJ format. GLTF is preferred as they can contain much more useful information about your models in a single file. The [Blender 3D modelling software](https://www.blender.org/) can import multiple formats including OBJ and FBX and export GLTF files in their place.
 
 
 ```
+<!-- GLTF Model
+src - Hyperlink or preloading tag to model asset 
+scale - Scale of model (x,y,z)
+position - Position of model from origin (x,y,z) 
+rotation - Euler rotation of model (x,y,z)
+-->
 <a-gltf-model      
-  src="#YYYY"          <!-- Hyperlink to model asset -->
-  scale="1 1 1"      <!-- Scale of model (x,y,z) -->
-  position="0 0 0"   <!-- Position of model from world origin (x,y,z) -->
-  rotation="0 0 0">   <!-- Euler rotation of model (x,y,z) -->
-</a-gltf-model> 
+  src="#YYYY"         
+  scale="1 1 1"      
+  position="0 0 0"   
+  rotation="0 0 0"
+></a-gltf-model> 
+
+<!-- OBJ Model
+src - Hyperlink or preloading tag to model asset 
+mtl - Hyperlink or preloading tag to material asset 
+scale - Scale of model (x,y,z)
+position - Position of model from origin (x,y,z) 
+rotation - Euler rotation of model (x,y,z)
+-->
+<a-obj-model  
+  src="#YYYY" 
+  mtl="#ZZZZ" 
+  scale="1 1 1"
+  position="0 0 0" 
+  rotation="0 0 0" 
+></a-obj-model>
 ```
 
-NOTE: OBJs work a little differently, and require a little more file management. If you must work in OBJ format, click [here](https://aframe.io/docs/1.2.0/primitives/a-obj-model.html) for information on how to use them with A-Frame. You can also load OBJ files into Blender and export them as GLTF files to skip this process.
+--------
 
-If you are looking to incorporate FBX models in your project, you may be interested in the JS library available [here](https://github.com/n5ro/aframe-extras/tree/master/src/loaders).
-This library also includes a file supporting GLTF animations.
+### Staging Point Clouds
 
-#### Staging Point Clouds
-
-At this time, only pointclouds in PLY format are supported.
-
-1. Scroll to the 'SCENE CONTENT SECTION' in the gallery code base (use Ctrl+F / ⌘F); this is the Scene Content section, where you will tell the code to place any assets you have loaded.
-2. Type the following code. Replace YYYY with the link to an asset (as described in the Staging Your Work section of this user manual). Note that preloading is currently not supported for PLY files. An example pointcloud is provided in the gallery_template.html file.
+At this time, only point clouds in PLY format are supported. Preloading tags are not supported for point clouds. An example is provided in our Gallery Template.
 
 ```
+<!-- Point cloud
+src - Hyperlink to PLY asset 
+scale - Scale of cloud (x,y,z)
+position - Position of cloud from origin (x,y,z) 
+rotation - Euler rotation of cloud (x,y,z)
+size - Size of points in cloud
+-->
 <a-pointcloud 
-        src="#YYYY        <!-- Hyperlink to PLY asset -->
-        scale="1 1 1"      <!-- Scale of cloud (x,y,z) -->
-        position="0 0 0"   <!-- Position of cloud from world origin (x,y,z) -->
-        rotation="0 0 0">   <!-- Euler rotation of cloud (x,y,z) -->
-        size="0.001">    <!-- Point scale -->
+        src="YYYY        
+        scale="1 1 1"     
+        position="0 0 0"  
+        rotation="0 0 0"   
+        size="0.001">    
  </a-pointcloud>
  ```
+ 
+ --------
 
-#### Staging Video
+### Staging Video
 
-1. Scroll to the 'SCENE CONTENT SECTION' in the gallery code base (use Ctrl+F / ⌘F); this is the Scene Content section, where you will tell the code to place any assets you have loaded.
-2. Type the following code. Replace YYYY with the link to an asset (as described in the Staging Your Work section of this user manual).
+Videos are rendered as double-sided panels with no thickness in A-Frame.
+
 ```
+<!-- Video
+src - Hyperlink or preloading tag to video asset 
+position - Position of video from origin (x,y,z) 
+rotation - Euler rotation of model (x,y,z)
+width - Video proportional width
+height - Video proportional height
+autoplay - Start video automatically
+loop="true" - loop video
+-->
 <a-video 
-  src="#YYYY"        <!-- Hyperlink to video asset -->
-  width="16"         <!-- Video proportional width -->
-  height="9"         <!-- Video proportional height -->
-  position="0 0 0">  <!-- Video position -->
+  src="#YYYY"        
+  width="16"         
+  height="9"         
+  position="0 0 0"
+  autoplay
+>  
 </a-video>
 ```
 
@@ -243,29 +342,44 @@ Note: We have implemented a click-to-play feature to the galleries to bypass aut
 
 Click [here](https://aframe.io/docs/1.2.0/primitives/a-video.html) to learn more about video in A-Frame.
 
-#### Staging Sound
+--------
 
-Sounds can be attached to most A-Frame components as an attribute or implemented independently using the 'sound' tag.
-.
+### Staging Sound
 
-1. Scroll to the 'SCENE CONTENT SECTION' in the gallery code base (use Ctrl+F / ⌘F); this is the Scene Content section, where you will tell the code to place any assets you have loaded.
-2. Type the following code. Replace YYYY with the link to an asset (as described in the Staging Your Work section of this user manual).
+Positional sounds can be attached to most A-Frame components as an attribute or implemented independently using the 'sound' tag. If you're looking for non-positional sound, see the 'Preloading Assets' section of this README.
 
-`<a-sound src="#YYYY" autoplay="true" loop="true"></a-sound>`
-OR
 ```
+<!-- Sound
+src - Hyperlink or preloading tag to audio asset 
+position - Position of audio from origin (x,y,z) 
+autoplay - Start audio automatically
+loop="true" - loop audio
+rolloffFactor - rate in which audio volume decays as a visitor moves away from this object
+-->
+
+<!--OPTION 1-->
+<a-sound src="#YYYY" autoplay="true" loop="true"></a-sound>
+
+<!--OPTION 2-->
 <a-entity 
-  id="soundBubble"                           <!-- A descriptive name for this sound-holding entity -->
-  position="0 0 0"                           <!-- Position of this component from world origin (x,y,z) -->
-  sound="src: #YYYY; autoplay: true; loop = true;">        <!-- A link to the sound source, whether to start playing the audio immediately, and whether to loop the audio -->
+  id="soundBubble"                           
+  position="0 0 0"                 
+  sound="src: #YYYY; autoplay: true; loop: true; rolloffFactor: 8;">  
 </a-entity>
 ```
-
-Note the autoplay and loop attributes of the sound component; you can switch these between true or false depending on if you want the audio to start immediately / want it to loop. You may also want to add 'rolloffFactor', the amount sound reduces in volume as you move closer or further from the sound component. By default, its value is set to 1; adjusting it to a number between 0 and 1 will cause the sound to decay slower whereas making it a number greater than 1 will make the sound decay faster.
 
 Note: We have implemented a click-to-play feature to the galleries to bypass autoplay policies in most web browsers. This ensures that any audio or video asset with autoplay will play after the user clicks the click-to-play overlay.
 
 Click [here](https://aframe.io/docs/1.2.0/components/sound.html) to learn more about sound in A-Frame, including other basic attributes you can adjust.
+
+---------
+
+### Staging Other Content
+
+A-Frame can support additional content types beyond the ones previously described. Check out [A-Frame's Full Documentation](https://aframe.io/docs/1.2.0/introduction/), particularly under the primitives section.
+
+Beyond what A-Frame officially supports, you may be able to find additional libraries online that extend its capabilities. Some libraries such as volumetric video, are currently not supported by our version of A-Frame; among other reasons, updates to the THREE.js library have caused some A-Frame extensions that have not been updated in years to break. 
+
 
 ---------
 
@@ -300,29 +414,7 @@ That being said, you should be able to experimentally make minor changes to the 
 
 ---------
 
-## Staging Other Content
-
-A-Frame can support additional content types beyond the ones previously described. Check out [A-Frame's Full Documentation](https://aframe.io/docs/1.2.0/introduction/), particularly under the primitives section.
-
-Beyond what A-Frame officially supports, you may be able to find additional libraries online that extend its capabilities. Some libraries, such as particle effects and volumetric video, are currently not supported by our version of A-Frame; among other reasons, updates to the THREE.js library have caused some A-Frame extensions that have not been updated in years to break. Enabling these extensions to be supported the current A-Frame build is among our development goals.
-
----------
-
-## Modifying Overlay Content
-
-On the right-hand side of the Template Gallery are three 'overlay' buttons: Information, Controls, Sitemap, and Home. 
-* The Information button opens a panel providing information on the artwork or gallery exhibit; we encourage you to fill out this section to describe yourself, your work and its context.
-* The Controls button provides a description of the basic controls for navigating the A-Frame gallery space. This is automatically filled by the 'controls.html' file in your project's local public folder.
-* The Sitemap button links to some A-Frame galleries created by students by default. 
-* Finally, the Home button opens the gallery hub index page. 
-
-You can find all of the code for this content in the `Overlay Panels Section` of the template gallery HTML document. If you want to change the links and content for the Home and Sitemap buttons, you can modify 'public/js/gallerymap.js' in your local JS folder; instructions are provided in the file. Note that the alternative 'index_canvas.html' uses these values to populate its gallery links automatically. 
-
-You are welcome to remix this section as you like by modifying the `overlay_style.css` page and by adding additional buttons / panels based on our core feature examples.
-
----------
-
-## A-Frame Components
+## Custom A-Frame Components
 
 Components can be added to all manners of A-Frame entities to extend their functionality. 
 We can transform objects that we place in our scenes by changing their scale, rotation and position, but if we wanted to, say, have an object rotate over time or have an object scale to a particular size over time, we need to use our own components.
@@ -348,7 +440,7 @@ You can also check out [NPM's listing of A-Frame components](https://www.npmjs.c
                                               
 ## Asset Acknowledgements
                                               
-The gallery template features a pointcloud artwork created and provided courtesy of Pau Aviles.
+The gallery template features a point cloud artwork created and provided courtesy of Pau Aviles.
            
 The cartoon used in the gallery template is [Felix: Doubles for Darwin](https://archive.org/details/Felix_DoublesforDarwin_NoAudio), produced in 1924 by Margaret J. Winkler and Patrick Sullivan and presently under public domain.
                                               
@@ -361,7 +453,7 @@ This project incorporates the following JavaScript libraries:
 - [A-Frame](https://aframe.io)
 - [A-Frame Extras](https://github.com/n5ro/aframe-extras)
 - [A-Frame Mobile Controls: Twoway Motion](https://github.com/Ctrl-Alt-Zen/aframe-mobile-controls/tree/master/components/twoway-motion)
-- [A-Frame Pointcloud Component](https://github.com/daavoo/aframe-pointcloud-component)
+- [A-Frame Point Cloud Component](https://github.com/daavoo/aframe-pointcloud-component)
 - [A-Frame Randomizer Components](https://www.npmjs.com/package/aframe-randomizer-components)
 - [Networked A-Frame](https://www.npmjs.com/package/networked-aframe)
 - [Bootstrap](https://getbootstrap.com/)

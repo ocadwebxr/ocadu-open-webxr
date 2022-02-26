@@ -2,11 +2,10 @@
 
 <html>
   <head>
-    <!--********************************************************************************************************************
-    * Header Metadata Section
-    *   Contains metadata describing the website.
-    ***********************************************************************************************************************
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+      <!-- ****************************************************************-->
+      
+      <!--   HEADER METADATA SECTION  -->
+      <!-- Contains metadata describing the website -->
 
     <!--Gallery Title and Metadescription-->
     <title>Open WebXR Gallery Template Room</title>
@@ -20,12 +19,11 @@
     <!-- Five letter identifier for gallerymap.js (update this) -->
     <script>myPageID="YELLO"</script> 
 
-    <!--********************************************************************************************************************
-    * Header Scripts Section
-    *   Contains important scripts vital to the operation of the gallery.
-    *   DO NOT MODIFY unless you know exactly what you are doing.
-    ***********************************************************************************************************************
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+    <!-- ****************************************************************-->
+      
+      <!--   HEADER SCRIPTS SECTION  -->
+      <!-- Contains important scripts vital to the operation of the gallery.
+    *   DO NOT MODIFY unless you know exactly what you are doing. -->
 
     <!-- BOOTSTRAP FEATURES (for layout) -->
     <!--   Bootstrap CSS for Preloader-->
@@ -80,40 +78,19 @@
     <!-- Movement Controls-->
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
+<!-- ****************************************************************-->
+      
+      <!--   OPTIONAL SCRIPTS SECTION  -->
+      <!-- For your own scripts, if you wish. -->
 
-    <!--********************************************************************************************************************
-    * Optional Scripts Section
-    * If you want to add your own scripts, this is where they go.
-    * Keep in mind that they may conflict with other script functionality; 
-    *     any additions you make here are your own responsibility.
-    *
-    * Consider checking out A-Frame's Extra scripts and their documentation for added funcitonality
-    * (e.g. fbx and obj model loaders, animation-mixer for gltf models, mesh smoothing)
-    * https://github.com/n5ro/aframe-extras#readme
-    * https://github.com/n5ro/aframe-extras/tree/master/src/loaders
-    * 
-    * External scripts can be added to the js subdirectory and tagged accordingly (or via a webhosted src):
-    * <script src="/js/spawn-in-circle.component.js"></script>
-    ***********************************************************************************************************************
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
-    <!-- lorem ipsum -->
-      </head>
+  </head>
   
-
-  <!-- Gallery Body: The Scene is embedded here-->
+<!-- ****************************************************************-->
+      
+      <!--   OVERLAY PANELS SECTION  -->
+      <!-- Contains the button and panel overlay HTML code -->
+  
   <body>
-    
-  <!--********************************************************************************************************************
-      * Overlay Panels Section
-      * 
-      * Contains the button and panel overlay HTML code, providing informative descriptions of the gallery/art and controls.
-      * 
-      * We recommend filling in the information in the Information Panel section and leaving the Controls Panel as-is, but
-      *      you are welcome to stylize these components or create your own additional buttons using the examples, JS code
-      *      and overlay style sheet if you wish.
-      ***********************************************************************************************************************
-      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
     
       <!-- Overlay scripts | NOTE: Must be located BEFORE all Overlay HTML code. -->
       <link rel="stylesheet" href="/overlay_style.css"> <!--Style Sheet for Overlay-->
@@ -150,7 +127,11 @@
             <div class="row" >
               <div class="col">  
               <button class="overlayBtn" id="closeInfoWindowButton" onclick="closeElement('infoPopup')">X</button>
-              <!-- Artwork/gallery information goes here -->
+                
+<!-- [subsection]****************************************************************-->
+      
+      <!--   ARTWORK DESCRIPTION SUBSECTION -->
+
                   <h3 id="artistName">Name, Your</h3>
                   Form and Time class, Fall 2021
 
@@ -160,7 +141,8 @@
                     </p>
 
                 <br>
-                <!-- information ends here -->              
+<!-- [/subsection]****************************************************************-->     
+                
        </div></div>
           
         <!-- Automatically populates with links to other galleries based on contents of your designated gallerymap.js-->
@@ -177,7 +159,7 @@
               <button class="overlayBtn" id="closeCtrlWindowButton" onclick="closeElement('ctrlPopup')">X</button>
                 
               <!-- Controls information is loaded from an external source -->
-              <div w3-include-html="https://ocadu-web-xr.glitch.me/controls.html"></div>
+              <div w3-include-html="/controls.html"></div>
 
        </div></div></div></div>
   
@@ -192,9 +174,11 @@
                   </p>
                   
                   <!-- This section is automatically populated based on gallerymap.js 
-                            if sitemap_overlay.js is included in the header -->
-                  <div class="container overflow-auto" id="tourListing"></div>
-                  <script>populateTourListing();</script>
+                            if sitemap_overlay.js is included in the header.
+                      You can uncomment this if you wish to use it in your project. -->
+                  
+                  <!--<div class="container overflow-auto" id="tourListing"></div>
+                  <script>populateTourListing();</script> -->
            </div>
           </div>
         </div>
@@ -202,16 +186,13 @@
 
 
     </div>
-    
-    <!--********************************************************************************************************************
-    * Scene Loading 
-    * You can adjust the preloading 'title' text here. 
-    * IMPORTANT: rename 'network-room-name' to a unique name;
-    *     this is your network name for your gallery space.
-    *      (Otherwise you will have unexpected visitors!)
-    * We recommend setting 'debug' to false when you are finished your project.
-    ***********************************************************************************************************************
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+  
+  
+<!-- ****************************************************************-->
+      
+      <!--   SCENE LOADING SECTION  -->
+      <!-- Defines the network room, fog, loading screen background color. -->
+      <!-- When you are finished editing, set 'debug' to false for improved performance -->
  
     <a-scene
       preloader="Just a moment...; clickToClose: false;"
@@ -222,28 +203,14 @@
       room: network-room-name;
       debug: true;"
     >
+      
       <!-- We can adjust how much time out assets have to load into the scene here (in milliseconds) -->
       <a-assets timeout="10000">
-        <!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-      ASSET LOADING SECTION
+<!-- ****************************************************************-->
       
-     ***************************************************************************************
-    * This section is for Assets, and is where we preload all the files that are displayed as part of the gallery. 
-    *   This is optional, but ensures that each asset is only loaded once instead of loaded every time the URL is loaded.
-    *   (i.e. defining assets means less memory-hogging!)
-    * 
-    * Anything placed in Assets will be loaded, regardless of if it's been placed in the scene or not;
-    *   for faster loading and running times, avoid including unused assets.
-    *
-    * use one of the following tag pairs to initialize your object:
-    * <video id="XXXX" src="YYYY" crossorigin="anonymous" ></video>                (for videos)
-    * <audio id="XXXX" src="YYYY" crossorigin="anonymous" ></audio>                 (for audio)
-    * <img id="XXXX" src="YYYY" crossorigin="anonymous" ></img>                     (for images)
-    * <a-asset-item id="XXXX" src="YYYY crossorigin="anonymous" ></a-asset-item>   (for everything else, inc. 3D models)
-    *
-    * XXXX - a unique name to reference || YYYY - the URL linking to your asset (usually from the assets folder)
-    ***************************************************-->
+      <!--   ASSET LOADING SECTION -->
+      <!-- Preloads assets before displaying scene + improves performance -->
 
         <!-- Assets go here-->
         <audio id="spatialSound" 
@@ -273,10 +240,11 @@
           src="https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Farrow.mtl?v=1638817282798"
         ></a-asset-item>
 
-        <!-- 
-      * The following assets are referenced by the gallery's core scripts.
-     ****************************************************************
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+     <!--****************************************************************-->
+        
+        <!-- CORE ENTITY SECTION -->
+        <!-- We don't recommend modifying assets here unless you know what you're doing. -->
 
         <!-- Avatar  -->
         
@@ -345,6 +313,11 @@
       
       <!-- Play-On-Click Trigger-->
       <a-entity play-on-click></a-entity>
+      
+         <!--****************************************************************-->
+        
+        <!-- ENVIRONMENT SECTION -->
+        <!-- These assets pertain to the sky, lighting, and ground planes of your scene -->
 
       <!--    Lights    -->
       <a-entity
@@ -353,8 +326,7 @@
         visible=""
       ></a-entity>
       
-      <!-- Positional Light
-            <!-- Positional Light -->
+      <!-- Positional Light -->
       <a-entity
         id="overheadLight"
         light="color: #ffffff; intensity: .5; type: directional;"
@@ -362,14 +334,16 @@
       ></a-entity> 
 
       <!--      Sky     -->
-      <!-- Skybox for the gallery. Image is optional. Image will not be visible if color is black (#000000) -->
-      <!-- <img id="sky" src="https://cdn.glitch.com/737ff51d-a65d-4003-bd13-f9623820980f%2FJudithHouse.png?v=1602524686235"  crossorigin="anonymous" /> -->
+      <!-- Skybox for the gallery. 
+      Image is optional. Image will not be visible if color is black (#000000) -->
+      <!-- <img id="sky" src="YYYY"  crossorigin="anonymous" /> -->
       <a-sky src="#sky" color="#000000" rotation="0 -90 0"></a-sky>
 
       <!--     Ground      -->
-      <!-- Ground plane affected by skybox. Image is optional. Depends on skybox for reflections by default -->
-      <!-- <img id="ground" src="https://cdn.glitch.com/737ff51d-a65d-4003-bd13-f9623820980f%2FSidewalkGrid-01.jpg?v=1600713588667" crossorigin="anonymous" />
-      -->
+      <!-- Ground plane affected by skybox. 
+      Image is optional. Depends on skybox for reflections by default -->
+      <!-- <img id="ground" src="YYYY" crossorigin="anonymous" /> -->
+      
       <!--<a-entity
         id="scenery"
         position="0 0 0"
@@ -378,59 +352,17 @@
         material="src: #ground; repeat: 1000 1000; color: #484848; sphericalEnvMap: #sky;"
       >
       </a-entity> -->
-
-      <!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-    SCENE CONTENT SECTION 
-    *************************************************************
-    *****************************************************************
-    * Below is where the content of the gallery is stored. 
-    * The code you use will depend on the file type.
-    *
-    For GLTF, use the syntax:
-      <a-gltf-model 
-        id="nameOfTheAsset" 
-        src="YYYY" 
-        position="0 0 0" 
-        rotation="0 0 0" 
-        scale="1 1 1">
-      </a-gltf-model>
-      Docs: https://aframe.io/docs/1.2.0/components/gltf-model.html
-    YYYY - #ID of the .obj file from the Asset Loading section
-
-    For OBJ, use the syntax:
-      <a-obj-model 
-        id="nameOfTheAsset"  
-        src="YYYY" 
-        mtl="ZZZZ" 
-        position="0 0 0" 
-        rotation="0 0 0" 
-        scale="1 1 1">
-      </a-obj-model>
-    YYYY - #ID of the .obj file from the Asset Loading section
-    ZZZZ - #ID of the .mtl file from the Asset Loading section
-
-    For PLY (Pointcloud), use the syntax:
-      <a-pointcloud 
-        id="nameOfTheAsset" 
-        position="0 0 0"
-        scale="1 1 1"
-        src="YYYY" 
-        size="0.001">
-      </a-pointcloud>
-    YYYY - direct URL or an #ID reference of a .ply file
-    scale is size of pointcloud
-    size is the size of the points in the pointcloud
-
-    For more options see the User Manual or A-Frame's general documentation.
-
-    *************************************************************
-    ****************************************************************-->
+      
+      
+    <!-- ****************************************************************-->
+      
+      <!--   SCENE CONTENT SECTION  -->
+      <!-- Any entities you create should be placed here -->
       
       <!-- Environment Group 
        You can modify the position, scale, and rotation of this to affect all
           entities between its tags (its children)
-        Handy when you need to adjust the entire world rather than adjusting 
+        This can be handy when you need to adjust the entire world rather than adjusting 
           individual objects manually.
       -->
       <a-entity
@@ -438,7 +370,8 @@
         position="0 -2 0"
                 >
         <!-- PLINTH 
-      Plinth is a flat cylinder. To change color, replace grey with an html color name or code. Code will be a #FFFFFF format.
+      Plinth is a flat cylinder. 
+      To change color, replace grey with an html color name or code. Code will be a #FFFFFF format.
       To make completely opaque, make opacity="1"-->
         <a-cylinder
           color="grey"
@@ -499,8 +432,6 @@
             sound="autoplay: true; loop: true; rolloffFactor: 8; src: #spatialSound"
                   >
         </a-cone>
-        
-
 
         <a-box 
           color="orange" 
@@ -517,7 +448,7 @@
           height="3"     
           rotation="0 135 0"
           position="-3 3 3"
-          media-control="id_media: felix; startTime: 20;"
+
           >  
         </a-video>
 
@@ -537,7 +468,11 @@
       
     </a-scene> <!-- End of Scene; any object tags placed after this won't show up. -->
 
-    <!-- Post-Scripts: Operate after other properties are loaded -->
+        <!-- ****************************************************************-->
+      
+      <!--   POST-SCRIPTS SECTION  -->
+      <!-- Backend scripts that run after all previous content has loaded into the document -->
+  
     <script>
       // This script is to make modifications to improve mobile experiences
       // e.g. adding the twoway motion component to the player
