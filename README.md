@@ -1,11 +1,9 @@
 # OCAD University Open WebXR Template for A-Frame
 Updated 2022-02-25
 
-OCAD University Open WebXR is a free and open-source A-Frame project template for staging and showcasing digital work in an Extended Reality (XR) space. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
+OCAD University Open WebXR is a free and open-source project template for staging and showcasing digital work in an Extended Reality (XR) space. This is one of three project templates developed in parallel by OCAD University and York University with the goal of providing students of varying educational background and skillsets with the necessary tools to quickly produce WebXR environments for their creative media projects.
 
-The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser. It is built on [ThreeJS](https://threejs.org). A-Frame, and the WebXR platform, are accessed using a [HTML](https://html.com/)-based code language. 
-
-Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
+The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser with [HTML](https://html.com/). It is built on [ThreeJS](https://threejs.org), a JavaScript library for rendering 3D models on the web. Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
@@ -22,8 +20,7 @@ This software is provided without warranty or liability.
 
 <b>User Manual</b>
 1. Getting Started
-2. Accessing Your Project
-3. Viewing the Galleries
+2. Navigating Your New Project Remix
 4. Initializing a Gallery
 5. Staging Assets
     * The A-Frame Inspector
@@ -35,7 +32,7 @@ This software is provided without warranty or liability.
 8. A Note About Debugging
 
 <b>A-Frame Entity Tag Guide</b>
-1. Intro
+1. Introduction
     * Staging Models
     * Staging Point Clouds
     * Staging Video
@@ -58,9 +55,11 @@ This guide is a detailed guide on how to prepare a Open WebXR Gallery.
 
 You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
+A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/dWL9).
+
 ---------
 
-## Getting Started
+## Creating a New Open WebXR Project
 
 Open WebXR is hosted on [Glitch](https://glitch.com/~ocadu-open-webxr) and [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). We recommend that users new to programming use Glitch, a free web and app hosting and code 'remixing' service, where users with registered Glitch accounts can adopt copies of other users projectsm edit them as they like, and collaborate live with other Glitch users. Our README is focused towards introducing users to the Glitch workflow, but more advanced users may prefer to fork or clone the repository directly from GitHub and host and edit the project using their preferred set of software tools.
 
@@ -72,7 +71,7 @@ To <b>collaborate</b> on your project with others, click the 'Share' button in t
 
 ---------
 
-## Accessing Your Project
+## Navigating Your New Project Remix
 
 You can access your project's code editor by clicking 'Edit Project' from your project page. The center of the code editor is the text editor window, while the lefthand panel is the project heirarchy, which contains all the files in the project. You can access your project's home page directly from "http://your-project-name.glitch.me", or click 'Preview' at the bottom of the code editor screen to open up a new browser tab or preview pane on the righthand side of the code editor. 
 
@@ -87,12 +86,6 @@ If you want to create a new gallery link button, you can copy and paste an exist
 </button>
 ```
 
-We will cover how to edit the appearance of the Gallery Hub as well as more advanced page navigation features in a later section of the README.
-
----------
-
-## Viewing the Galleries
-
 To open the template gallery, open the project homepage and click the 'Template Room' button. 
 
 Each WebXR gallery space supports several means of navigation:
@@ -102,6 +95,8 @@ Each WebXR gallery space supports several means of navigation:
 - If you have a compatible VR headset, you can view your work in VR by clicking the VR icon.
 
 Descriptions of the controls are also available by clicking the gamepad icon; you can modify this description by modifying the file 'public/controls.html' in the code editor's folder hierarchy.
+
+We will cover how to edit the appearance of the Gallery Hub as well as more advanced page navigation features in a later section of the README.
 
 ---------
 
