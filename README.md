@@ -8,8 +8,8 @@ The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
 ### Sister Projects
-[WebXR NodeLab](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
-(+TBA)
+[WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
+[WebXR Template for Three.js and Node.js](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
 
 ---------
 
@@ -43,7 +43,7 @@ This project was made possible with funding by the Government of Ontario and thr
     * Avatars
 3. Custom A-Frame Components
 
-<b>Asset Acknowledgements</b>
+<b>Asset Acknowledgements & Licensing</b>
 
 ---------
 
@@ -53,7 +53,7 @@ This guide is a detailed guide on how to prepare a Open WebXR Gallery.
 
 You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
-A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/dWL9).
+A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/Rz60).
 
 ---------
 
@@ -474,4 +474,4 @@ This project incorporates the following JavaScript libraries:
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-                       
+
