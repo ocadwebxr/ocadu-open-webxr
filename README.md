@@ -8,8 +8,8 @@ The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
 ### Sister Projects
-[WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
-[WebXR Template for Three.js and Node.js](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
+* [WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
+* [WebXR Template for Three.js and Node.js](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
 
 ---------
 
