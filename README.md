@@ -7,11 +7,11 @@ The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
-This software is provided without warranty or liability.
+This software is provided without warranty or liability. Licensing information is available at the end of this README.
 
 ### Sister Projects
-[WebXR NodeLab](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
-(+TBA)
+[WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
+[WebXR Template for Three.js and Node.js](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
 
 ---------
 
@@ -45,7 +45,7 @@ This software is provided without warranty or liability.
     * Avatars
 3. Custom A-Frame Components
 
-<b>Asset Acknowledgements</b>
+<b>Asset Acknowledgements & Licensing</b>
 
 ---------
 
@@ -55,7 +55,7 @@ This guide is a detailed guide on how to prepare a Open WebXR Gallery.
 
 You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
-A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/dWL9).
+A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/Rz60).
 
 ---------
 
@@ -168,7 +168,7 @@ There are many ways to optimize the file size of your work depending on the medi
 
 For point clouds or 3d models, make sure that the origin of your 3D object or point cloud is located at 0,0,0 ; this ensures that any transformations made to the object in the WebXR environment are relative to the center of the object.
 
-For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg)
+For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg) A tutorial video on how to use the tool is available [here](https://ocadu.techsmithrelay.com/u6wI).
 
 For 3D models or point clouds, you can use [Draco](https://google.github.io/draco/) before submitting. Draco is an open-source library for compressing and decompressing 3D geometric meshes and point clouds. Learn more about Draco [here](https://google.github.io/draco/).
 
@@ -435,7 +435,7 @@ You can also check out [NPM's listing of A-Frame components](https://www.npmjs.c
                                               
 ## Asset Acknowledgements
                                               
-The gallery template features a point cloud artwork created and provided courtesy of Pau Aviles.
+The gallery template features a point cloud artwork created and provided courtesy of Pau Aviles, licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
            
 The cartoon used in the gallery template is [Felix: Doubles for Darwin](https://archive.org/details/Felix_DoublesforDarwin_NoAudio), produced in 1924 by Margaret J. Winkler and Patrick Sullivan and presently under public domain.
                                               
@@ -456,4 +456,24 @@ This project incorporates the following JavaScript libraries:
 - [jQuery](https://jquery.com/)
 - [Socket.io](https://socket.io/)
 - [ThreeJS](https://threejs.org)
+                       
+---------
+
+## Software Licensing Notice
+
+    OCAD University Open WebXR Template for A-Frame
+    Copyright (C) 2022  Tyson Moll, Elizabeth Lopez, Judith Doyle, and Nick Alexander
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
                        
