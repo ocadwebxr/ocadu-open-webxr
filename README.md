@@ -7,8 +7,6 @@ The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
-This software is provided without warranty or liability. Licensing information is available at the end of this README.
-
 ### Sister Projects
 [WebXR Template for P5.js](https://github.com/worldmaking/WebXR_P5js_eCampus21)
 [WebXR Template for Three.js and Node.js](https://github.com/worldmaking/WebXRNodeLab_eCampus21) 
@@ -456,7 +454,7 @@ This project incorporates the following JavaScript libraries:
 - [jQuery](https://jquery.com/)
 - [Socket.io](https://socket.io/)
 - [ThreeJS](https://threejs.org)
-                       
+
 ---------
 
 ## Software Licensing Notice
@@ -476,4 +474,4 @@ This project incorporates the following JavaScript libraries:
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-                       
+
