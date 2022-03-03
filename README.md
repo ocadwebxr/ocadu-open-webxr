@@ -41,8 +41,9 @@ This is one of three projects developed in parallel by OCAD University and York 
     * Staging Other Content
 2. Modifying the Gallery Environment 
     * Lights
-    * The Skybox
-    * The Ground
+    * Skybox
+    * Ground
+    * Particles
     * Avatars
 3. Custom A-Frame Components
 
@@ -391,16 +392,22 @@ We have also commented out an example of a violet 'positional' light that you ma
 
 For more information on lights, check out [A-Frame's documentation on lights](https://aframe.io/docs/1.2.0/components/light.html).
 
-### The Skybox
+### Skybox
 
 The gallery environment is encapsulated within a 'skybox' which by default appears plain black. 
 You can modify the color of this skybox by navigating to the `<!--      Sky     -->` block and adjusting the color attribute in the 'a-sky' tag.
 You can also apply an image to the skybox; we have already included an image tag in this section that you can uncomment to use; just replace the 'src' attribute value with an image URL.
 
-### The Ground
+### Ground
 
 If you would like to incorporate a pseudo-infinite ground plane, you can navigate to the `<!--     Ground      -->` section and uncomment the 'a-entity' tag block below it.
 Just like with the skybox, you can also define an image to tile along the surface of the ground plane.
+
+### Particles
+
+The particle system in the template uses an external library with documentation that you can access [here](https://github.com/IdeaSpaceVR/aframe-particle-system-component). It features multiple properties that you can customize and manipulate as you like, including particle age, size, color, and direction. By default, our template gallery features a 'snow' particle system in the `<!--     Particles      -->` section.
+
+Note: The 'rain' preset doesn't seem to be compatible.
 
 ### Avatars
 
