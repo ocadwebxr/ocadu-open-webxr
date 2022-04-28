@@ -191,7 +191,7 @@ For more information on uploading assets, click [here](https://help.glitch.com/k
 
 ### Preloading Assets
 
-While optional, preloading assets ensures that your media is loaded before the user is permitted in the gallery. It also helps reduce redundant loading calls to the same resource, improving performance. At present, this feature is supported for all types of asset files EXCEPT point clouds. All preloading asset tags are placed in the 'Asset Loading Section' of the gallery template.
+While optional, preloading assets ensures that your media is loaded before the user is permitted in the gallery. It also helps reduce redundant loading calls to the same resource, improving performance. All preloading asset tags are placed in the 'Asset Loading Section' of the gallery template.
 
 To prepare your media for preloading, use one of the following tags as appropriate for your media of choice. Replace 'ZZZZ' with the hyperlink you obtained from the 'Uploading Your Work' section. You can use any nickname in place of 'XXXX', the asset tag name; in your A-Frame Entity Tags (see the A-Frame Entity Tag Guide section), replace the src attribute value "#YYYY" with "#XXXX", where 'XXXX' is the asset tag name you invented. For example, if my tag name was 'catSound', then the 'src' attribute would look like `src="#catSound"`.
 
@@ -200,7 +200,7 @@ To prepare your media for preloading, use one of the following tags as appropria
 XXXX - an identifying nickname for the asset (no spaces)
 Z - the hyperlink to the asset, from the Assets folder in your folder hierarchy
 
-Unless the asset is video, audio, or image, use the a-asset-item tag.
+Unless the asset is video, audio, pointcloud, or image, use the a-asset-item tag.
 
 If you want sound to play in your scene as background music instead of positional audio, add the following attributes:
 autoplay - play the media automatically on startup
@@ -209,6 +209,7 @@ loop="true" - start the audio again when it finishes
 
 <video id="XXXX" src="ZZZZ" crossorigin="anonymous" ></video>             
 <audio id="XXXX" src="ZZZZ" crossorigin="anonymous" ></audio>  
+<pointcloud id="XXXX" src="ZZZZ" crossorigin="anonymous" ></pointcloud>  
 <img id="XXXX" src="ZZZZ" crossorigin="anonymous" ></img> 
 <a-asset-item id="XXXX" src="ZZZZ" crossorigin="anonymous" ></a-asset-item>  
 ```
@@ -290,18 +291,18 @@ rotation - Euler rotation of model (x,y,z)
 
 ### Staging Point Clouds
 
-At this time, only point clouds in PLY format are supported. Preloading tags are not supported for point clouds. An example is provided in our Gallery Template.
+At this time, only point clouds in PLY format are supported.  An example is provided in our Gallery Template.
 
 ```
 <!-- Point cloud
-src - Hyperlink to PLY asset 
+src - Hyperlink or preloading tag to PLY asset 
 scale - Scale of cloud (x,y,z)
 position - Position of cloud from origin (x,y,z) 
 rotation - Euler rotation of cloud (x,y,z)
 size - Size of points in cloud
 -->
 <a-pointcloud 
-        src="YYYY        
+        src="#YYYY        
         scale="1 1 1"     
         position="0 0 0"  
         rotation="0 0 0"   

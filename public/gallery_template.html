@@ -50,12 +50,15 @@
     <script src="https://kit.fontawesome.com/f3fbe8f644.js" crossorigin="anonymous"></script>
 
     <!-- A-FRAME FEATURES (for gallery)-->
+    
     <!-- A-Frame plugin -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <!--   Move on mobile   -->
-    <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    
+    <!--   Move on mobile -->
+    <script src="https://cdn.jsdelivr.net/gh/vulture-boy/aframe-mobile-controls/components/twoway-motion/twoway-motion.js"></script>
+
     <!--   Network Functionality Plugins   -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.4.0/socket.io.slim.js"></script>
     <script src="https://unpkg.com/networked-aframe@^0.7.1/dist/networked-aframe.min.js"></script>
 
     <!--   Pointcloud Plugin   -->
@@ -242,6 +245,12 @@
           crossorigin="anonymous" 
           src="https://cdn.glitch.me/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2Farrow.mtl?v=1638817282798"
         ></a-asset-item>
+        
+        <pointcloud
+          id="dragonPLY"
+          crossorigin="anonymous" 
+          src="https://cdn.glitch.com/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2FDragon_v14_resampled.ply?v=1630007840857"
+        ></pointcloud>
 
 
      <!--****************************************************************-->
@@ -257,7 +266,7 @@
             
             <!-- 'Tadpole' Avatar -->
             <a-entity
-                scale="0.5 0.5 0.5"      
+                scale="0.5 0.5 0.5" 
                 >
                 <a-entity
                   class="player"
@@ -289,30 +298,25 @@
       </a-assets>
 
       <!-- Player/User entity -->
-      <a-entity
-        id = "rig"
-        class = "rig"
-        networked="template:#avatar-template;attachTemplateToLocal:false;"
-        movement-controls="fly: true; "
-        spawn-in-circle="radius:3"
-        position="0 0 0"
-        rotation = "0 0 0"
-        >
         <a-entity
           id="player"
           class="player"
-          camera
+          networked="template:#avatar-template;attachTemplateToLocal:false;"
+          camera  
           look-controls
-          rotation="0 45 0"
+          wasd-controls="acceleration:60; fly: true;"
+          twoway-motion="speed: 35;"
+          position="0 2 0"
+          spawn-in-circle="radius:3"
         >
           <!-- Important: Syncs with cone in avatar-template to provide syncronous color.
            See NAF schema near bottom of page for details on which player properties are synced on the network. -->
           <a-cone class="head"
             visible="false"
+            color="#DDDDDD"
             random-color="min: 0.0 0.0 0.0; max: 1.0 1.0 1.0"
           ></a-cone>
         </a-entity>
-      </a-entity>
       
       <!-- Play-On-Click Trigger-->
       <a-entity play-on-click></a-entity>
@@ -364,16 +368,6 @@
       <!--   SCENE CONTENT SECTION  -->
       <!-- Any entities you create should be placed here -->
       
-      <!-- Environment Group 
-       You can modify the position, scale, and rotation of this to affect all
-          entities between its tags (its children)
-        This can be handy when you need to adjust the entire world rather than adjusting 
-          individual objects manually.
-      -->
-      <a-entity
-        id="environmentGroup"
-        position="0 -2 0"
-                >
         <!-- PLINTH 
       Plinth is a flat cylinder. 
       To change color, replace grey with an html color name or code. Code will be a #FFFFFF format.
@@ -388,7 +382,7 @@
 
         <!-- Sample Pointcloud  with a rotational element-->
         <a-pointcloud
-          src="https://cdn.glitch.com/06e25459-7547-47e5-9d1d-9ea50f5cb1df%2FDragon_v14_resampled.ply?v=1630007840857"
+          src="#dragonPLY"
           scale="1 1 1"
           position="0 2 0"
           size="0.002"
@@ -469,7 +463,6 @@
           rotation="0 0 0" 
           scale="1 1 1">
         </a-obj-model>
-      </a-entity>
       
     </a-scene> <!-- End of Scene; any object tags placed after this won't show up. -->
 
@@ -497,10 +490,7 @@
         template: "#avatar-template",
         components: [
           "position",
-          {
-            selector: ".player",
-            component: "rotation",
-          },
+          "rotation",
           {
             selector: ".head",
             component: "material",
