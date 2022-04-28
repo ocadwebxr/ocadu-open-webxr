@@ -38,6 +38,7 @@ This is one of three projects developed in parallel by OCAD University and York 
     * Staging Point Clouds
     * Staging Video
     * Staging Sound
+    * Staging Volumetric Video via DepthKit
     * Staging Other Content
 2. Modifying the Gallery Environment 
     * Lights
@@ -136,7 +137,7 @@ As shown above, each tag pair has attributes such as position, rotation and colo
   <a-sphere position="0 0 5" radius="1.25" color="#EF2D5E"></a-sphere>
 </a-box>
 ```
-In the example above, our box is located at (-1, 0, -3) while our sphere is located at (0, 0, 5) relative to the box, or (-1, 0, 2) in the world space. 
+In the example above, our box is located at (-1, 0, -3) while our sphere is located at (0, 0, 5) relative to the box, or (-1, 0, 2) in the world space. [A-Frame's rotation](https://aframe.io/docs/1.3.0/components/rotation.html#sidebar) uses the [right-hand coordinate system](https://en.wikipedia.org/wiki/Right-hand_rule). From the perspective of a visitor oriented at zero the positive X axis is directed towards the right, the positive Y axis is directed upwards, and the positive Z axis is directed into the screen.
 
 After inserting these tags, the objects will appear in the scene. Previewing your changes is as easy as opening the Glitch preview panel and navigating to your gallery page from the home page button you created in "Initializing a Gallery". If you would like to add more complicated objects to your scene, you will find more information on staging models, point clouds and videos later in this readme as well as the [A-Frame Documentation](https://aframe.io/docs/1.2.0/introduction/).
 
@@ -338,7 +339,7 @@ loop="true" - loop video
 
 Note: We have implemented a click-to-play feature to the galleries to bypass autoplay policies in most web browsers. This ensures that any audio or video asset with autoplay will play after the user clicks the click-to-play overlay.
 
-Click [here](https://aframe.io/docs/1.2.0/primitives/a-video.html) to learn more about video in A-Frame.
+Click [here](https://aframe.io/docs/1.3.0/primitives/a-video.html) to learn more about video in A-Frame.
 
 --------
 
@@ -368,7 +369,37 @@ rolloffFactor - rate in which audio volume decays as a visitor moves away from t
 
 Note: We have implemented a click-to-play feature to the galleries to bypass autoplay policies in most web browsers. This ensures that any audio or video asset with autoplay will play after the user clicks the click-to-play overlay.
 
-Click [here](https://aframe.io/docs/1.2.0/components/sound.html) to learn more about sound in A-Frame, including other basic attributes you can adjust.
+Click [here](https://aframe.io/docs/1.3.0/components/sound.html) to learn more about sound in A-Frame, including other basic attributes you can adjust.
+
+---------
+
+### Staging Volumetric Video via DepthKit
+
+At the time of writing, Volumetric Video rendering is not supported in the current version of A-Frame. However, it is supported in version 0.8.2 of A-Frame, so if you are open to downgrading the project you can integrate Volumetric Video as output from DepthKit.
+Please note that this downgrade removes the >1.1.0 loading screen and may cause bugs from depreciated versions to resurface. It also breaks particle effects, but we have found an alternative that supports this downgraded version.
+Both downgraded versions of A-Frame and its particle effects extension are included as comments in the gallery-template file.
+
+```
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> 
+<script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script>
+```
+
+To incorporate Volumetric Video assets in A-Frame 0.8.2, you can use the following template:
+
+```
+<a-entity depthkit="type: wire;
+                          metaPath: https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit.js/assets/Chae/Chae_Demo_Upres.txt;
+                          videoPath: https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit.js/assets/Chae/Chae_Demo_Upres.webm;
+                          autoplay: true;
+                          loop: true;"
+                  rotation="0 0 -90" 
+                  position="2 1 -1">
+        </a-entity>
+```
+Documentation for DepthKit in A-Frame is available [here](https://github.com/juniorxsound/DepthKit-A-Frame).
+
+The reason for the incompatability is because the extension we use has a dependency on a depreciated version of Three.js that uses Three.Geometry instead of Three.BufferGeometry, effective as of 2019.
 
 ---------
 
