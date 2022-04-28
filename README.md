@@ -1,5 +1,5 @@
 # OCAD University Open WebXR Template for A-Frame
-Updated 2022-02-25
+Updated 2022-04-28
 
 OCAD University Open WebXR is a free and open-source project template for staging and showcasing digital work in an Extended Reality (XR) space. The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser with [HTML](https://html.com/). It is built on [ThreeJS](https://threejs.org), a JavaScript library for rendering 3D models on the web. Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
@@ -388,6 +388,7 @@ Both downgraded versions of A-Frame and its particle effects extension are inclu
 To incorporate Volumetric Video assets in A-Frame 0.8.2, you can use the following template:
 
 ```
+<-- Entity with DepthKit -->
 <a-entity depthkit="type: wire;
                           metaPath: https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit.js/assets/Chae/Chae_Demo_Upres.txt;
                           videoPath: https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit.js/assets/Chae/Chae_Demo_Upres.webm;
