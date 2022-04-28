@@ -4,8 +4,7 @@
 
 AFRAME.registerComponent('spawn-in-circle', {
   schema: {
-    radius: {type: 'number', default: 1},
-    model: {type: 'string', default: 'player'}
+    radius: {type: 'number', default: 1}
   },
 
   init: function() {
@@ -19,8 +18,10 @@ AFRAME.registerComponent('spawn-in-circle', {
     // console.log('world point', worldPoint);
 
     var angleDeg = angleRad * 180 / Math.PI;
-    var angleToCenter = angleDeg + 180;
-    var angleRad = angleToCenter * Math.PI /180;
+    var angleToCenter = -1 * angleDeg + 90;
+    angleRad = THREE.Math.degToRad(angleToCenter);
+    el.object3D.rotation.set(0, angleRad, 0);
+    // console.log('angle deg', angleDeg);
   },
 
   getRandomAngleInRadians: function() {

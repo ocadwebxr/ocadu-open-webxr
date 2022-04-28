@@ -84,7 +84,7 @@ AFRAME.registerComponent('hotspot-hyperlink', {
     url: {type: 'string', default: "/index.html"},  // Hyperlink to open
     detectionBox: {type: 'vec3', default: {x:1, y:1, z:1}},    // Region of detection relative to this entity
     target: {type: 'string', default: "_self"},  // Use "_blank" for a new window
-    teleportee: {type: 'string', default: "rig"} // Object to trigger hyperlink
+    teleportee: {type: 'string', default: "player"} // Object to trigger hyperlink
   },
   
   init: function() {
@@ -101,7 +101,8 @@ AFRAME.registerComponent('hotspot-hyperlink', {
   tick: function(time, timeDelta) {
     // Open the url if the player is in the hotspot & popups are permitted
     if (!this.windowOpened && this.inDetectionBox() ) {
-      window.open(this.data.url, this.data.target).focus(); 
+      var win = window.open(this.data.url, this.data.target);
+      if (win != null) {win.focus();}
       this.windowOpened = true;  // Prevents infinite window opening; one-use
     }
   },
@@ -144,7 +145,7 @@ AFRAME.registerComponent('hotspot-teleport', {
   schema: {
     detectionBox: {type: 'vec3', default: {x:1, y:1, z:1}},    // Region of detection relative to this entity
     targetPos: {type: 'vec3', default: {x:0, y:0, z:0}},  // Use "_blank" for a new window
-    teleportee: {type: 'string', default: "rig"} // Object to teleport
+    teleportee: {type: 'string', default: "player"} // Object to teleport
   },
   
   init: function() {
