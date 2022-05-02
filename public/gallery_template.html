@@ -53,8 +53,12 @@
     
     <!-- A-Frame plugin (>1.1.0) -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script> 
+    
     <!-- Old version (0.8.2) for Depthkit support. Has several bugs that may impact experience, use only if necessary
-    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>  -->
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> -->
+    
+    <!-- Substitute movement script adding Sink-Float controls. (Also adds A-Frame 1.3.0 controls to 0.8.2) -->
+    <script src="/js/wasd-controls-alt.js"></script>
     
     <!--   Move on mobile -->
     <script src="https://cdn.jsdelivr.net/gh/vulture-boy/aframe-mobile-controls/components/twoway-motion/twoway-motion.js"></script>
@@ -80,14 +84,10 @@
     <!-- Note: must add play-on-click-video components to video / play-on-click-audio components to audio -->
     <script src="/js/play-on-click.js"></script>
     
-    <!-- Movement Controls-->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- Particle System (A-Frame >1.1.0) 
+    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script> -->
     
-    
-    <!-- Particle System (A-Frame >1.1.0) -->
-    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script> 
-    
-    <!-- Volumetric Video & Particles (A-Frame 0.8.2; requires downgrade) 
+    <!-- Volumetric Video & Particles (A-Frame 0.8.2; requires downgrade)
     <script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> 
     <script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script> -->
 
@@ -109,7 +109,6 @@
       <link rel="stylesheet" href="/overlay_style.css"> <!--Style Sheet for Overlay-->
       <script src="/js/infoOverlay.js"></script> <!-- General Overlay functions -->
       <script src="/js/gallerymap.js"></script>  <!-- Sitemapping -->
-
       <script src="/js/sitemap_overlay.js"></script>  <!-- Scripts for sitemap functions  -->
     
       <!--Overlay content begins here-->
@@ -117,10 +116,11 @@
       
       <!-- Navigation Buttons -->
       <div id="overlayBtns">
-        <i class="fas fa-info-circle fa-3x" id="infoButton" onclick="toggleElement('infoPopup')"></i> <!-- Information Pop-Up Button -->
-        <a id="ctrlButton"  onclick="toggleElement('ctrlPopup')"><i class="fas fa-gamepad fa-3x"></i></a>  <!-- Controls Pop-Up Button -->
-        <a id="mapButton"  onclick="toggleElement('mapPopup');"><i class="fas fa-map fa-3x"></i></a> <!-- Site Map Pop-Up Button -->
-        <a id="homeButton" href="/index.html" target="_blank"><i class="fas fa-home fa-3x"></i></a> <!--Home Button-->
+        <a id="homeButtonBox" href="/index.html" target="_blank"><i id="homeButton" class="fas fa-home fa-3x"></i></a> <!--Home Button-->
+        <a id="infoButtonBox"><i class="fas fa-info-circle fa-3x" id="infoButton" onclick="toggleElement('infoPopup')"></i></a> <!-- Information Pop-Up Button -->
+        <a id="ctrlButtonBox" onclick="toggleElement('ctrlPopup');"><i id="ctrlButton" class="fas fa-gamepad fa-3x"></i></a>  <!-- Controls Pop-Up Button -->
+        <a id="mapButtonBox" onclick="toggleElement('mapPopup');"><i id="mapButton" class="fas fa-map fa-3x"></i></a> <!-- Site Map Pop-Up Button -->
+        <a id="fullButtonBox" onclick="toggleFullscreen();"><i id="fullButton" class="fas fa-expand fa-3x"></i></a>
       </div>
         <!-- Replaces home link with designated link in gallerymap.js -->
         <script>swapHome();</script>
@@ -311,7 +311,8 @@
           networked="template:#avatar-template;attachTemplateToLocal:false;"
           camera  
           look-controls
-          wasd-controls="acceleration:60; fly: true;"
+          wasd-controls-alt="acceleration:60; fly: true;"
+          sink-float
           twoway-motion="speed: 35;"
           position="0 2 0"
           spawn-in-circle="radius:3"
@@ -351,7 +352,8 @@
       <!-- Skybox for the gallery. 
       Image is optional. Image will not be visible if color is black (#000000) -->
       <!-- <img id="sky" src="YYYY"  crossorigin="anonymous" /> -->
-      <a-sky src="#sky" color="#000000" rotation="0 -90 0"></a-sky>
+      <!-- <a-sky src="#sky" color="#000000" rotation="0 -90 0"></a-sky> -->
+      <a-sky color="#000000"></a-sky>
 
       <!--     Ground      -->
       <!-- Ground plane affected by skybox. 
@@ -387,23 +389,23 @@
           position="0 1 0"
         ></a-cylinder>
 
-        <!-- Sample Pointcloud  with a rotational element-->
+        <!-- Sample Pointcloud  with a 1D rotational element-->
         <a-pointcloud
           src="#dragonPLY"
           scale="1 1 1"
           position="0 2 0"
           size="0.002"
-          rotate-time="rotationSpeed: 0 0.02 0"
+          animation="property: rotation; to: 0 360 0; dur: 12000; easing: linear; loop: true"
         >
         </a-pointcloud>
 
-        <!-- Rotation / Changing Scale Example -->
+        <!-- 3D Rotation Example -->
         <a-box 
           color="tomato" 
           position="3 2 3"
           depth="0.5" height="0.5" width="0.5"
           rotate-time="rotationSpeed: 0.01 -0.01 0.02"
-          scale-time="scaleSpeed: 0 0 0.000001"
+          animation__scale="property: scale; to: 1 1 10; dur: 16000; easing: linear; dir: alternate; loop: true"
           >
         </a-box>
 
@@ -454,7 +456,6 @@
           height="3"     
           rotation="0 135 0"
           position="-3 3 3"
-
           >  
         </a-video>
 

@@ -1,5 +1,5 @@
 # OCAD University Open WebXR Template for A-Frame
-Updated 2022-04-28
+Updated 2022-04-29
 
 OCAD University Open WebXR is a free and open-source project template for staging and showcasing digital work in an Extended Reality (XR) space. The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser with [HTML](https://html.com/). It is built on [ThreeJS](https://threejs.org), a JavaScript library for rendering 3D models on the web. Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
@@ -46,7 +46,7 @@ This is one of three projects developed in parallel by OCAD University and York 
     * Ground
     * Particles
     * Avatars
-3. Custom A-Frame Components
+3. Animation & Custom A-Frame Components
 
 <b>Asset Acknowledgements & Licensing</b>
 
@@ -450,17 +450,29 @@ That being said, you should be able to experimentally make minor changes to the 
 
 ---------
 
-## Custom A-Frame Components
+## Animation & Custom A-Frame Components
 
 Components can be added to all manners of A-Frame entities to extend their functionality. 
-We can transform objects that we place in our scenes by changing their scale, rotation and position, but if we wanted to, say, have an object rotate over time or have an object scale to a particular size over time, we need to use our own components.
+We can transform objects that we place in our scenes by changing their scale, rotation and position.
 
-If we wanted to have a cube spin over time, we could use this code in our gallery:
+A-Frame has a built-in method to do this: the 'animation' component, which allows you to specify a property you want to modify from a starting value to a new value. The component allows you to change the behaviour in which the animation is performed as well. For full details on how to manipulate the animation component, see the [A-Frame documentation page on animation](https://aframe.io/docs/1.3.0/components/animation.html).
+
+The following example shows how to create a box that rotates in the y axis in a full loop every two seconds (2000 milliseconds) and scales back and forth between 10x its initial size:
+```
+<a-box
+  animation="property: rotation; to: 0 360 0; dur: 2000; loop: true"
+  animation__scale="property: scale; to: 1 1 10; dur: 16000; easing: linear; dir: alternate; loop: true"
+  
+>
+</a-box>
+```
+Note the use of the double underscore. Any phrase can follow a double underscore, which allows you to add multiple copies of a component to a single entity.
+
+For more control over the behaviour of our objects, we can use custom components or create our own components.
+
+The following box entity rotates in three dimensions indefinitely:
 ```
 <a-box 
-  color="tomato" 
-  position="3 2 3"
-  depth="0.5" height="0.5" width="0.5"
   rotate-time="rotationSpeed: 0.01 -0.01 0.02"
   >
 </a-box>
@@ -468,7 +480,7 @@ If we wanted to have a cube spin over time, we could use this code in our galler
 Notice the 'rotate-time' component? This is one of several basic components provided in our `basic_components.js` that can be added to your primitives, point-clouds, etc. without any major scripting work on your part. You can browse this JS document to find more components that have been prepared for WebXR, or experiment with the component examples we have prepared in the gallery template.
 You may also be interested in the components provided by [aframe-randomizer-components](https://www.npmjs.com/package/aframe-randomizer-components); we included this in the template to provide random colours to the avatars, but you might find some of its properties to be useful for your own projects.
 
-You can add as many compatible components to your objects as you'd like, but if you want to implement more complicated behaviours, you may want to give the [A-Frame component documentation](https://aframe.io/docs/1.2.0/core/component.html) a review and be prepared to work with a little bit of JavaScript.
+You can add as many compatible components to your objects as you'd like, but if you want to implement more complicated behaviours, you may want to give the [A-Frame component documentation](https://aframe.io/docs/1.3.0/core/component.html) a review and be prepared to work with a little bit of JavaScript.
 
 You can also check out [NPM's listing of A-Frame components](https://www.npmjs.com/search?q=aframe-component&page=0&perPage=20), including [a component for creating portals](https://www.npmjs.com/package/aframe-portals)! Follow the instructions with each component to install and use them with your project.
 
@@ -491,6 +503,8 @@ This project incorporates the following JavaScript libraries:
 - [A-Frame Mobile Controls: Twoway Motion](https://github.com/Ctrl-Alt-Zen/aframe-mobile-controls/tree/master/components/twoway-motion)
 - [A-Frame Point Cloud Component](https://github.com/daavoo/aframe-pointcloud-component)
 - [A-Frame Randomizer Components](https://www.npmjs.com/package/aframe-randomizer-components)
+- [A-Frame Particle System Component](https://github.com/IdeaSpaceVR/aframe-particle-system-component)
+- [DepthKit for A-Frame](https://github.com/juniorxsound/DepthKit-A-Frame)
 - [Networked A-Frame](https://www.npmjs.com/package/networked-aframe)
 - [Bootstrap](https://getbootstrap.com/)
 - [Font Awesome](https://fontawesome.com/)
