@@ -123,3 +123,40 @@ function neighbourNavigation() {
   
   // Note: nothing will be prepared if the ID match is not found
 }
+
+// Fullscreen toggle function
+var full = false;
+function toggleFullscreen() {
+  if (full) {
+    closeFullscreen();
+  } else {
+    openFullscreen();
+  }
+  full = !full;
+}
+
+// see https://www.w3schools.com/howto/howto_js_fullscreen.asp
+function openFullscreen() {
+  var elem = document.documentElement;
+  
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  var elem = document.documentElement;
+  
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
