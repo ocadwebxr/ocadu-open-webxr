@@ -266,7 +266,16 @@ function isEmptyObject (keys) {
   return true;
 }
 
+// Since we're overriding the basic wasd-controls, this helps identify/replace the target component
+var wasdComponent = 'wasd-controls-alt';
+
+/* sink-float
+Change axis dynamically to allow for movement in vertical axis instead of forward axis
+*/
 AFRAME.registerComponent('sink-float',{
+  schema: {
+    inputKey: {type: 'string', default: " "},
+  },
 
   init: function() {
     var el = this.el;
@@ -274,8 +283,8 @@ AFRAME.registerComponent('sink-float',{
       var name = event.key;
       var code = event.code;
       
-      if (name === " ") {
-        el.setAttribute('wasd-controls-alt', {wsAxis: 'y', wsInverted: true})
+      if (name === this.data.inputKey) {
+        el.setAttribute(wasdComponent, {wsAxis: 'y', wsInverted: true})
       }
     }, false);
     
@@ -283,8 +292,42 @@ AFRAME.registerComponent('sink-float',{
       var name = event.key;
       var code = event.code;
       
-      if (name === " ") {
-        el.setAttribute('wasd-controls-alt', {wsAxis: 'z', wsInverted: false})
+      if (name === this.data.inputKey) {
+        el.setAttribute(wasdComponent, {wsAxis: 'z', wsInverted: false})
+      }
+    }, false);
+    
+  }
+});
+
+/* speed-shift
+Increase wasd-controls speed by multiplier
+*/
+AFRAME.registerComponent('speed-shift',{
+  schema: {
+    inputKey: {type: 'string', default: "Shift"},
+    multiplier: {type: 'number', default: 2}
+  },
+
+  init: function() {
+    var el = this.el;
+    var baseAcceleration = el.getAttribute(wasdComponent).acceleration;
+    
+    document.addEventListener('keydown', (event) => {
+      var name = event.key;
+      var code = event.code;
+      
+      if (name === this.data.inputKey) {
+        el.setAttribute(wasdComponent, {acceleration: baseAcceleration * this.data.multiplier})
+      }
+    }, false);
+    
+    document.addEventListener('keyup', (event) => {
+      var name = event.key;
+      var code = event.code;
+      
+      if (name === this.data.inputKey) {
+        el.setAttribute(wasdComponent, {acceleration: baseAcceleration})
       }
     }, false);
     
