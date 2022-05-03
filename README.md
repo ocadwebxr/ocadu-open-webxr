@@ -1,7 +1,7 @@
 # OCAD University Open WebXR Template for A-Frame
-Updated 2022-04-29
+Updated 2022-05-03
 
-OCAD University Open WebXR is a free and open-source project template for staging and showcasing digital work in an Extended Reality (XR) space. The WebXR platform uses [A-Frame](https://aframe.io), an open-source library for implementing 3D and VR content in the browser with [HTML](https://html.com/). It is built on [ThreeJS](https://threejs.org), a JavaScript library for rendering 3D models on the web. Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
+OCAD University Open WebXR is a free and open-source project template for staging and showcasing digital work in an Extended Reality (XR) space. The WebXR platform uses [A-Frame 1.3.0](https://aframe.io), an open-source library for implementing 3D and VR content in the browser with [HTML](https://html.com/). It is built on [ThreeJS](https://threejs.org), a JavaScript library for rendering 3D models on the web. Our Open WebXR Gallery template is officially hosted [on Glitch.com](https://glitch.com/~ocadu-open-webxr), with stable versions mirrored to [GitHub](https://github.com/ocadwebxr/ocadu-open-webxr). You may be interested in visiting [our student gallery](https://glitch.com/~ocadu-web-xr).
 
 This project was made possible with funding by the Government of Ontario and through eCampusOntario’s support of the Virtual Learning Strategy. To learn more about the Virtual Learning Strategy visit  [https://vls.ecampusontario.ca](https://vls.ecampusontario.ca). 
 
@@ -31,6 +31,7 @@ This is one of three projects developed in parallel by OCAD University and York 
     * Preloading Assets
 7. Overlay Content and the Gallery Hub Network
 8. A Note About Debugging
+9. Improving Performance
 
 <b>A-Frame Entity Tag Guide</b>
 1. Introduction
@@ -47,6 +48,7 @@ This is one of three projects developed in parallel by OCAD University and York 
     * Particles
     * Avatars
 3. Animation & Custom A-Frame Components
+4. Notes on Downgrading from A-Frame 1.3.0 to 0.8.2
 
 <b>Asset Acknowledgements & Licensing</b>
 
@@ -54,7 +56,7 @@ This is one of three projects developed in parallel by OCAD University and York 
 
 # User Manual
 
-This guide is a detailed guide on how to prepare a Open WebXR Gallery.
+This user guide details how to prepare a Open WebXR Gallery with our template package.
 
 You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
@@ -245,6 +247,19 @@ It is useful to know that most web browsers have a code debugging inspector that
 
 ---------
 
+## Improving Performance
+
+As previously noted in the Media Preparation and Preloading Assets topics of the Incorporating Non-Primitive Assets section, making adjustments to your assets file size & preloading said assets can result in improved load and runtimes. 
+
+Other ways to improve performance / reduce memory overhead may include:
+* Removing unnecessary light sources
+* Reducing the number of instances of objects
+* Removing scripts from the 'Optional Scripts' header that aren't used (e.g. Point Clouds & Particles if you choose not to use them)
+* Fixing any errors in your custom-made components that may be taking up unnecessary memory
+* Disabling debug mode in the networked-aframe attribute of your `<a-scene>` tag by setting its value to `false`
+
+---------
+
 # A-Frame Entity Tag Guide
 
 The following subsections detail how to setup particular A-Frame entities with premade sample tags that you can copy into your gallery's 'SCENE CONTENT SECTION' (Ctrl + F).
@@ -292,7 +307,7 @@ rotation - Euler rotation of model (x,y,z)
 
 ### Staging Point Clouds
 
-At this time, only point clouds in PLY format are supported.  An example is provided in our Gallery Template.
+Point clouds in PLY format are supported.  An example is provided in our Gallery Template.
 
 ```
 <!-- Point cloud
@@ -310,6 +325,8 @@ size - Size of points in cloud
         size="0.001">    
  </a-pointcloud>
  ```
+ 
+ Potree-format point clouds work with A-Frame 0.8.2; if you would like to import this particular format you will need to downgrade A-Frame. See the 'Notes on Downgrading' section of this document for details. You can read documentation on the Potree loader component [here](https://github.com/mattrei/aframe-potree-loader-component), which includes a sample entity you can place in your gallery.
  
  --------
 
@@ -375,15 +392,13 @@ Click [here](https://aframe.io/docs/1.3.0/components/sound.html) to learn more a
 
 ### Staging Volumetric Video via DepthKit
 
-At the time of writing, Volumetric Video rendering is not supported in the current version of A-Frame. However, it is supported in version 0.8.2 of A-Frame, so if you are open to downgrading the project you can integrate Volumetric Video as output from DepthKit.
+Volumetric Video support is very unstable as it depends on largely unsupported assets, cannot preload, and crashes if it fails modern web browser autoplay policies. At the time of writing, Volumetric Video (VV) rendering is non-functional in the current version of A-Frame. However, it is somewhat supported in version 0.8.2 of A-Frame, so if you are open to downgrading the project and your VV metadata you can integrate VV as output from DepthKit.
 Please note that this downgrade removes the >1.1.0 loading screen and may cause bugs from depreciated versions to resurface. It also breaks particle effects, but we have found an alternative that supports this downgraded version.
 Both downgraded versions of A-Frame and its particle effects extension are included as comments in the gallery-template file.
 
-```
-<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> 
-<script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script>
-```
+VV depends on a video file and a meta file. Because of the size of video files, it is highly recommended to keep VV clips short, separate them from any audio, and/or convert the default exported MP4 video to WebM format. 
+
+Note that the meta file controls many attributes of the volumetric video. If you don't see your VV entity in the scene, confirm that it loaded properly by checking the browser and A-Frame inspectors, and in the latter, checking the properties panel (e.g. the meta file may set the scale of the object to very small units). The meta file will need modifications to work if it was produced in DepthKit versions >=0.5.4. For details on how to implement a workaround to downgrade metafiles from later DepthKit versions, [read the documentation for DepthKit.js](https://github.com/ScatterCo/Depthkit.js).
 
 To incorporate Volumetric Video assets in A-Frame 0.8.2, you can use the following template:
 
@@ -398,9 +413,9 @@ To incorporate Volumetric Video assets in A-Frame 0.8.2, you can use the followi
                   position="2 1 -1">
         </a-entity>
 ```
-Documentation for DepthKit in A-Frame is available [here](https://github.com/juniorxsound/DepthKit-A-Frame).
+Note that there is no preload asset support for this plugin. Documentation for DepthKit in A-Frame is available [here](https://github.com/juniorxsound/DepthKit-A-Frame).
 
-The reason for the incompatability is because the extension we use has a dependency on a depreciated version of Three.js that uses Three.Geometry instead of Three.BufferGeometry, effective as of 2019.
+The reason for DepthKit for A-Frame's modern incompatability is because the extension we use has a dependency on a depreciated version of Three.js that uses Three.Geometry instead of Three.BufferGeometry, effective as of 2019.
 
 ---------
 
@@ -483,6 +498,24 @@ You may also be interested in the components provided by [aframe-randomizer-comp
 You can add as many compatible components to your objects as you'd like, but if you want to implement more complicated behaviours, you may want to give the [A-Frame component documentation](https://aframe.io/docs/1.3.0/core/component.html) a review and be prepared to work with a little bit of JavaScript.
 
 You can also check out [NPM's listing of A-Frame components](https://www.npmjs.com/search?q=aframe-component&page=0&perPage=20), including [a component for creating portals](https://www.npmjs.com/package/aframe-portals)! Follow the instructions with each component to install and use them with your project.
+
+---------
+
+## Notes on Downgrading from A-Frame 1.3.0 to 0.8.2
+
+At the time of writing, Volumetric Video and Potree-format Point Cloud rendering is not supported in the current version of A-Frame. However, they are supported in version 0.8.2 of A-Frame, so if you are open to downgrading the project you can integrate either of these features in your project.
+
+Please note that this downgrade removes the >1.1.0 loading screen, the 'animation' component, and may cause bugs from depreciated versions of A-Frame to resurface. It also breaks particle effects, but we have found an alternative that supports this downgraded version and have included it as a comment in the gallery template.
+
+To downgrade A-Frame, simply comment out version 1.3.0 and uncomment 0.8.2 in the header of the gallery template. In the 'Optional Scripts Section', comment out scripts associated with A-Frame versions >1.1.0 and uncomment the 0.8.2 scripts. You may also wish to use some of the basic components supplied in 'basic_components.js' for animation.
+
+```
+<script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> 
+<script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script>
+```
+
+Note that there is an alternate version of the aframe-depthkit.js file included in the local JS files that removes references to colliders; you may find this script is more reliable than the CDN-provided version. 
 
 ---------
                                               
