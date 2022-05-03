@@ -53,10 +53,8 @@
     
     <!-- A-Frame plugin (>1.1.0) -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script> 
-    
-    <!-- Old version (0.8.2) for Depthkit support. Has several bugs that may impact experience, use only if necessary
+    <!-- Old version (0.8.2) for Depthkit support. Has several bugs that may impact experience, use only if necessary 
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script> -->
-    
     <!-- Substitute movement script adding Sink-Float controls. (Also adds A-Frame 1.3.0 controls to 0.8.2) -->
     <script src="/js/wasd-controls-alt.js"></script>
     
@@ -66,35 +64,45 @@
     <!--   Network Functionality Plugins   -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.4.0/socket.io.slim.js"></script>
     <script src="https://unpkg.com/networked-aframe@^0.7.1/dist/networked-aframe.min.js"></script>
+    <!--   Plugin for spawning users in a circle   -->
+    <script src="/js/spawn-in-circle.component.js"></script>
 
-    <!--   Pointcloud Plugin   -->
-    <script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>
     <!--   Plugin for randomizing avatar colours   -->
     <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
     <!-- Include HTML -->
     <script src="/js/include-html.js"></script>
     
     <!-- OCAD WebXR Repository Content -->
-    <!-- Basic Components for your AFrame entities -->
-    <script src="/js/basic_components.js"></script>
-    <!--   Plugin for spawning users in a circle   -->
-    <script src="/js/spawn-in-circle.component.js"></script>
         
     <!-- Enables Play-on-Click properties to ensure audio / video works on all devices -->
     <!-- Note: must add play-on-click-video components to video / play-on-click-audio components to audio -->
     <script src="/js/play-on-click.js"></script>
-    
-    <!-- Particle System (A-Frame >1.1.0) 
-    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script> -->
-    
-    <!-- Volumetric Video & Particles (A-Frame 0.8.2; requires downgrade)
-    <script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> 
-    <script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script> -->
 
 <!-- ****************************************************************-->
       
       <!--   OPTIONAL SCRIPTS SECTION  -->
-      <!-- For your own scripts, if you wish. -->
+    <!-- Note: this template may include items that depend on these scripts. E.g. if removing particle systems, be sure not to have particles in your template. -->
+    
+    <!-- Any A-Frame Version -->
+    <!--   Pointcloud Plugin   -->
+    <script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>
+    <!-- Basic Components for your A-Frame entities -->
+    <script src="/js/basic_components.js"></script>
+    
+    <!-- A-Frame >1.1.0 features -->
+    <!-- Particle System (A-Frame >1.1.0) -->
+    <script src="https://ideaspacevr.github.io/aframe-particle-system-component/dist/aframe-particle-system-component.js"></script> 
+    
+    <!-- The following components only work in A-Frame 0.8.2 -->
+    <!-- Volumetric Video (A-Frame 0.8.2)
+    <script src="https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit-A-Frame/dist/aframe.depthkit.js"></script> -->
+    <!-- Alternate version if it doesn't work
+    <script src="/js/aframe-depthkit.js"></script> -->
+    <!-- Particles (A-Frame 0.8.2)
+    <script src="https://unpkg.com/aframe-particle-system-component@1.1.x/dist/aframe-particle-system-component.min.js"></script> -->
+    <!-- Potree-format Point Clouds
+    <script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script> -->
+      
 
   </head>
   
@@ -215,6 +223,7 @@
       networked-scene="
       room: network-room-name;
       debug: true;"
+      potree-loader="pointBudget: 1;"
     >
       
       <!-- We can adjust how much time out assets have to load into the scene here (in milliseconds) -->
@@ -474,7 +483,7 @@
         </a-obj-model>
       
         <!-- Depthkit Example
-        This example will fail unless the template is set to use A-Frame 0.8.2. See README.md for details.
+        This example will fail unless the template is downgraded to use A-Frame 0.8.2. See README.md section on downgrading for details.
         The meta/video are samples provided with DepthKit.js
         <a-entity depthkit="type: wire;
                           metaPath: https://cdn.jsdelivr.net/gh/juniorxsound/DepthKit.js/assets/Chae/Chae_Demo_Upres.txt;
@@ -484,6 +493,21 @@
                   rotation="0 0 -90" 
                   position="2 1 -1">
         </a-entity>
+        -->
+      
+        <!-- Potree Point Cloud Example
+        This example will fail unless the template is downgraded to use A-Frame 0.8.2. See README.md section on downgrading for details.
+        The src is a sample provided though the aframe-potree-loader-component
+        <a-entity potree-loader="
+          src: https://cdn.rawgit.com/potree/potree/develop/pointclouds/lion_takanawa;
+
+          pointSize: 1;
+          pointColorType: rgb;
+          minimumNodePixelSize: 100;
+          "
+          position="-1 -1 -5"
+          rotation="-85 0 0"
+        ></a-entity>      
         -->
       
     </a-scene> <!-- End of Scene; any object tags placed after this won't show up. -->
