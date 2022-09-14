@@ -60,7 +60,7 @@ This user guide details how to prepare a Open WebXR Gallery with our template pa
 
 You do not need to have any prior knowledge of code to use the WebXR platform, however if you are new to HTML we recommend giving this [brief tutorial by Mozilla](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics) a quick read to familiarize yourself with HyperText Markup Language.
 
-A video tutorial is available for viewing on [Knowmia](https://ocadu.techsmithrelay.com/Rz60).
+A video tutorial is available for viewing on [Vimeo](https://vimeo.com/749663656).
 
 ---------
 
@@ -173,7 +173,7 @@ There are many ways to optimize the file size of your work depending on the medi
 
 For point clouds or 3d models, make sure that the origin of your 3D object or point cloud is located at 0,0,0 ; this ensures that any transformations made to the object in the WebXR environment are relative to the center of the object.
 
-For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg) A tutorial video on how to use the tool is available [here](https://ocadu.techsmithrelay.com/u6wI).
+For point clouds, we recommend you use [this tool](https://colab.research.google.com/drive/1VuLNoZE2TWsTAJbeVOQUaaqAX36Tqelt) to compress your work automatically. (Hosted on Google Colab by Nick Fox-Gieg) A tutorial video on how to use the tool is available [here](https://vimeo.com/749675516).
 
 For 3D models or point clouds, you can use [Draco](https://google.github.io/draco/) before submitting. Draco is an open-source library for compressing and decompressing 3D geometric meshes and point clouds. Learn more about Draco [here](https://google.github.io/draco/).
 
